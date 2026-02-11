@@ -1,0 +1,15 @@
+{
+  "data_dir": "d:\\Zhu\\AI Project\\EEG data",
+  "auto_discover_participants": true,
+  "participants_used": [
+    "P2",
+    "P3",
+    "P4"
+  ],
+  "n_participants_used": 3,
+  "sampling_rate_hz": 500,
+  "window_size_samples": 1000,
+  "window_overlap": 0.5,
+  "max_windows_per_participant": 300,
+  "auto_infer_layout": true
+}
