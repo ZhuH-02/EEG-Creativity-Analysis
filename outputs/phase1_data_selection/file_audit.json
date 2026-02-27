@@ -1,9 +1,9 @@
 [
   {
     "participant_id":"P2",
-    "eeg_path":"d:\\Zhu\\AI Project\\EEG data\\Participant-2\\P2.eeg",
-    "vhdr_path":"d:\\Zhu\\AI Project\\EEG data\\Participant-2\\P2.vhdr",
-    "vmrk_path":"d:\\Zhu\\AI Project\\EEG data\\Participant-2\\P2.vmrk",
+    "eeg_path":"D:\\Zhu\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-2\\P2.eeg",
+    "vhdr_path":"D:\\Zhu\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-2\\P2.vhdr",
+    "vmrk_path":"D:\\Zhu\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-2\\P2.vmrk",
     "eeg_exists":true,
     "vhdr_exists":true,
     "vmrk_exists":true,
@@ -52,9 +52,9 @@
   },
   {
     "participant_id":"P3",
-    "eeg_path":"d:\\Zhu\\AI Project\\EEG data\\Participant-3\\P3.eeg",
-    "vhdr_path":"d:\\Zhu\\AI Project\\EEG data\\Participant-3\\P3.vhdr",
-    "vmrk_path":"d:\\Zhu\\AI Project\\EEG data\\Participant-3\\P3.vmrk",
+    "eeg_path":"D:\\Zhu\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-3\\P3.eeg",
+    "vhdr_path":"D:\\Zhu\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-3\\P3.vhdr",
+    "vmrk_path":"D:\\Zhu\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-3\\P3.vmrk",
     "eeg_exists":true,
     "vhdr_exists":true,
     "vmrk_exists":true,
@@ -91,9 +91,9 @@
   },
   {
     "participant_id":"P4",
-    "eeg_path":"d:\\Zhu\\AI Project\\EEG data\\Participant-4\\P4.eeg",
-    "vhdr_path":"d:\\Zhu\\AI Project\\EEG data\\Participant-4\\P4.vhdr",
-    "vmrk_path":"d:\\Zhu\\AI Project\\EEG data\\Participant-4\\P4.vmrk",
+    "eeg_path":"D:\\Zhu\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-4\\P4.eeg",
+    "vhdr_path":"D:\\Zhu\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-4\\P4.vhdr",
+    "vmrk_path":"D:\\Zhu\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-4\\P4.vmrk",
     "eeg_exists":true,
     "vhdr_exists":true,
     "vmrk_exists":true,
