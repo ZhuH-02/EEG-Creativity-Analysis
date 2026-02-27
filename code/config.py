@@ -14,7 +14,27 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = str(PROJECT_ROOT / "EEG data")
 
 # Participants to analyze (modify based on available data)
-PARTICIPANTS = ["P2", "P3", "P4"]
+PARTICIPANTS = ["P2", "P3", "P4", "P5", "P6", "P7", "P8", "P9", "P10"]
+
+# Canonical phase labels used by the baseline classifier.
+# Keep codes stable for reproducibility.
+PHASE_CODE_MAP = {
+    "RST": 0,  # Rest
+    "IDG": 1,  # Idea Generation
+    "IDE": 2,  # Idea Evolution
+    "IDR": 3,  # Idea Rating
+}
+
+# Optional marker-to-phase mapping.
+# Keys are case-insensitive substrings matched against annotation descriptions.
+# Example:
+# MARKER_TO_PHASE = {
+#     "s 11": "RST",
+#     "s 12": "IDG",
+#     "s 13": "IDE",
+#     "s 14": "IDR",
+# }
+MARKER_TO_PHASE = {}
 
 # EEG file extension
 EEG_FILE_EXTENSION = ".eeg"

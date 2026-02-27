@@ -150,35 +150,6 @@ features = extractor.extract_batch_features(
 
 ---
 
-
-## Python Code Style
-
-All code follows PEP 8 standards:
-- Comments in **English only**
-- Docstrings for all functions and classes
-- Type hints where applicable
-- Clear variable names
-
-Example:
-```python
-def compute_band_power(signal_data: np.ndarray, 
-                      band_name: str) -> float:
-    """
-    Compute power in a specific frequency band using FFT.
-    
-    Args:
-        signal_data: 1D signal array in microvolts
-        band_name: Name of frequency band ('alpha', 'beta', etc.)
-        
-    Returns:
-        Float value representing power in the band
-    """
-    # Implementation...
-    pass
-```
-
----
-
 ## References & Resources
 
 ### Key Papers (from your attachments)
