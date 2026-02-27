@@ -1,0 +1,10 @@
+              precision    recall  f1-score   support
+
+         RST       0.96      0.58      0.72       294
+         IDG       0.16      0.57      0.25        47
+         IDE       0.40      0.20      0.26       107
+         IDR       0.06      0.16      0.09        31
+
+    accuracy                           0.47       479
+   macro avg       0.40      0.38      0.33       479
+weighted avg       0.70      0.47      0.53       479

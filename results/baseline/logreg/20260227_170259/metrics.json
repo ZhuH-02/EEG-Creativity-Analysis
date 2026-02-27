@@ -1,0 +1,75 @@
+{
+  "metrics": {
+    "accuracy": 0.2947709393799167,
+    "precision": 0.49413431408211544,
+    "recall": 0.2947709393799167,
+    "f1_score": 0.33976937164370585,
+    "roc_auc": 0.64583208301896
+  },
+  "n_test": 2161,
+  "label_distribution_test": {
+    "0": 866,
+    "1": 541,
+    "2": 583,
+    "3": 171
+  },
+  "class_labels": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "class_names": [
+    "RST",
+    "IDG",
+    "IDE",
+    "IDR"
+  ],
+  "config": {
+    "MODEL_NAME": "logreg",
+    "MODEL_VARIANTS": [
+      "logreg",
+      "xgboost"
+    ],
+    "MODEL_CONFIG": {
+      "max_iter": 1000,
+      "solver": "lbfgs",
+      "C": 1.0,
+      "random_state": 42,
+      "class_weight": "balanced"
+    },
+    "DATA_DIR": "D:\\Zhu\\AI Project\\EEG Creativity Analysis\\EEG data",
+    "PARTICIPANTS": [
+      "P2",
+      "P3",
+      "P4",
+      "P5",
+      "P6",
+      "P7",
+      "P8",
+      "P9",
+      "P10"
+    ],
+    "SAMPLING_RATE": 500,
+    "WINDOW_SIZE": 1000,
+    "WINDOW_OVERLAP": 0.5,
+    "TEST_SIZE": 0.3,
+    "RANDOM_SEED": 42,
+    "PHASE_CODE_MAP": {
+      "RST": 0,
+      "IDG": 1,
+      "IDE": 2,
+      "IDR": 3
+    },
+    "JSON_PHASE_TO_CANONICAL": {
+      "rest": "RST",
+      "idea generation": "IDG",
+      "idea evolution": "IDE",
+      "idea rating": "IDR"
+    },
+    "SAVE_PLOTS": true,
+    "PLOT_FORMAT": "png",
+    "PLOT_DPI": 150
+  },
+  "created_at": "2026-02-27T17:02:59"
+}
