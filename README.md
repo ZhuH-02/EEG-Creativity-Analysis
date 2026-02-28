@@ -1,30 +1,26 @@
 # EEG Creativity Analysis
 
-Reproducible EEG pipeline for:
+Reproducible EEG pipeline in Python + PyTorch for:
 
 - Phase 1 data auditing and feature extraction
-- Baseline multiclass classification for creativity-task phases
+- Baseline multiclass classification of creativity-task phases
 
-The baseline trainer is in `code/app.py` and uses local participant JSON files (`sub_*.json`).
+## Current Status (February 28, 2026)
 
-## Project Status (as of 2026-02-27)
+- Baseline training is fully PyTorch (`torch_linear`, `torch_mlp`) in `code/app.py`
+- Subject-wise split is enabled (participant-level grouping)
+- Phase 1 audit outputs are generated under `outputs/phase1_data_selection/`
+- Current baseline runs exist under:
+  - `results/baseline/torch_linear/20260227_190331/`
+  - `results/baseline/torch_mlp/20260227_190336/`
 
-- Data audit script implemented and writing rubric-style outputs to `outputs/phase1_data_selection/`
-- Baseline models implemented: Logistic Regression and XGBoost
-- Subject-wise train/test split enabled with `GroupShuffleSplit`
-- Recent runs saved under `results/baseline/logreg/` and `results/baseline/xgboost/`
+## Dataset
 
-## Data Description
-
-### Source
-
-This project uses the EEG creativity dataset referenced by DOI:
+Source DOI:
 
 `10.17632/24yp3xp58b.1`
 
-### Local data layout
-
-Expected folder structure:
+Expected local layout:
 
 ```text
 EEG data/
@@ -34,41 +30,25 @@ EEG data/
   Participant-3/
     sub_03.json
     P3.eeg
-    ...
+  ...
 ```
 
-### What each file is used for
+File usage:
 
-- `sub_XX.json`: primary source used by `code/app.py` for training/evaluation
-- `P*.eeg`: raw EEG binary stream (used by the Phase 1 audit fallback loader)
-- `P*.vhdr` and `P*.vmrk`: legacy BrainVision metadata files, not used by the current pipeline
+- `sub_XX.json`: primary training/evaluation source for `code/app.py`
+- `P*.eeg`: raw EEG stream (used by Phase 1 fallback audit loader)
+- `P*.vhdr`, `P*.vmrk`: optional legacy metadata, not required for baseline training
 
-### Data schema used by the baseline model
-
-`sub_*.json` is expected to contain segment arrays keyed by phase text, for example:
-
-- `1_idea generation`
-- `2_rest`
-- `3_idea evolution`
+## Label Mapping
 
 `app.py` maps text labels to canonical classes:
 
-- `RST` (rest) -> `0`
-- `IDG` (idea generation) -> `1`
-- `IDE` (idea evolution) -> `2`
-- `IDR` (idea rating) -> `3`
+- `RST` -> `0` (Rest)
+- `IDG` -> `1` (Idea Generation)
+- `IDE` -> `2` (Idea Evolution)
+- `IDR` -> `3` (Idea Rating)
 
-### Current configured participants and signal settings
-
-From `code/config.py`:
-
-- Participants: `P2` to `P10`
-- Sampling rate: `500 Hz`
-- Window size: `1000` samples (`2.0` seconds)
-- Window overlap: `0.5` (50%)
-- Test split: `0.3`
-
-## Repository Layout
+## Repository Structure
 
 ```text
 .
@@ -80,106 +60,99 @@ From `code/config.py`:
 │   └── phase1_data_selection/
 ├── results/
 │   └── baseline/
+│       ├── torch_linear/
+│       └── torch_mlp/
 ├── notebooks/
 ├── requirements.txt
 └── EEG data/                      # local-only, gitignored
 ```
 
-## Setup
-
-Windows PowerShell:
+## Setup (Windows PowerShell)
 
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 ```
+
+If you see `ModuleNotFoundError`, ensure VS Code uses:
+
+`<workspace>\.venv\Scripts\python.exe`
 
 ## Configuration
 
-Edit `code/config.py` to control:
+Main settings are in `code/config.py`:
 
-- dataset path and participants: `DATA_DIR`, `PARTICIPANTS`
-- signal/window parameters: `SAMPLING_RATE`, `WINDOW_SIZE`, `WINDOW_OVERLAP`
-- split and reproducibility: `TEST_SIZE`, `RANDOM_SEED`
-- model settings: `BASELINE_MODEL_CONFIG`, `XGBOOST_CONFIG`
-- output options: `RESULTS_DIR`, `SAVE_PLOTS`, `PLOT_FORMAT`, `PLOT_DPI`
+- Data and participants: `DATA_DIR`, `PARTICIPANTS`
+- Signal/windowing: `SAMPLING_RATE`, `WINDOW_SIZE`, `WINDOW_OVERLAP`
+- Split and reproducibility: `TEST_SIZE`, `RANDOM_SEED`
+- Model variants and hyperparameters:
+  - `MODEL_VARIANTS`
+  - `TORCH_LINEAR_CONFIG`
+  - `TORCH_MLP_CONFIG`
+- Output settings: `RESULTS_DIR`, `SAVE_PLOTS`, `PLOT_FORMAT`, `PLOT_DPI`
 
-Optional keys supported by `app.py`:
+## Run
 
-- `MODEL_VARIANTS` (for example `["logreg", "xgboost"]`)
-- `JSON_PHASE_TO_CANONICAL` (maps JSON text labels to canonical phase codes)
-
-## How To Run
-
-### 1. Phase 1 data audit
+### 1. Phase 1 Audit
 
 ```powershell
 python code/phase1_data_selection_audit.py
 ```
 
-Outputs written to:
+Outputs written to `outputs/phase1_data_selection/`:
 
-- `outputs/phase1_data_selection/features.csv`
-- `outputs/phase1_data_selection/file_audit.json`
-- `outputs/phase1_data_selection/missingness.csv`
-- `outputs/phase1_data_selection/summary_stats.csv`
-- `outputs/phase1_data_selection/duplicates.csv`
-- `outputs/phase1_data_selection/outliers_summary.csv`
-- `outputs/phase1_data_selection/example_rows.csv`
-- `outputs/phase1_data_selection/plot_*.png`
+- `features.csv`
+- `file_audit.json`
+- `missingness.csv`
+- `summary_stats.csv`
+- `duplicates.csv`
+- `outliers_summary.csv`
+- `example_rows.csv`
+- `run_metadata.json`
+- `plot_histograms.png`
+- `plot_corr_heatmap.png`
+- `plot_windows_per_participant.png`
 
-### 2. Baseline training and evaluation
+### 2. Baseline PyTorch Training
 
 ```powershell
 python code/app.py
 ```
 
-Current behavior:
+Behavior:
 
-- loads all configured `sub_*.json` files
-- builds window-level time and frequency features
-- splits by participant ID (subject-wise split)
-- trains selected model variants
-- saves metrics and plots per run
+- loads configured `sub_*.json` files
+- extracts window-level time/frequency features
+- performs subject-wise train/test split
+- trains configured PyTorch variants
+- saves run artifacts per model
 
-Outputs per run:
+Per-run output folder:
 
 `results/baseline/<model_name>/<YYYYMMDD_HHMMSS>/`
 
-Each run folder contains:
+Per-run files:
 
 - `metrics.json`
 - `classification_report.txt`
 - `confusion_matrix.png`
-- `roc_curve.png` (binary-only case)
+- `roc_curve.png` (binary-only)
 
-## Latest Baseline Snapshot (2026-02-27)
+## Latest Baseline Snapshot (February 27, 2026)
 
 From:
 
-- `results/baseline/logreg/20260227_170259/metrics.json`
-- `results/baseline/xgboost/20260227_170300/metrics.json`
+- `results/baseline/torch_linear/20260227_190331/metrics.json`
+- `results/baseline/torch_mlp/20260227_190336/metrics.json`
 
 Metrics:
 
-- Logistic Regression: accuracy `0.2948`, weighted F1 `0.3398`, weighted OvR ROC-AUC `0.6458`
-- XGBoost: accuracy `0.4142`, weighted F1 `0.3819`, weighted OvR ROC-AUC `0.6037`
-
-## Large Data and Version Control
-
-Raw EEG files are intentionally not versioned in standard Git due to size.
-
-Common ignored paths:
-
-- `EEG data/`
-- `.venv/`
-- `__pycache__/`
-
-Keep raw recordings local or manage them with a dedicated data workflow (for example Git LFS, DVC, or external object storage).
+- `torch_linear`: accuracy `0.3968`, weighted F1 `0.3833`, weighted OvR ROC-AUC `0.6703`
+- `torch_mlp`: accuracy `0.4019`, weighted F1 `0.3963`, weighted OvR ROC-AUC `0.6726`
 
 ## Notes
 
-- If `xgboost` is not installed, `app.py` skips XGBoost and continues.
-- Subject-wise split requires at least two participants.
-- `.vhdr` and `.vmrk` are no longer required for current training/evaluation runs.
+- `app.py` still accepts legacy aliases (`logreg`, `xgboost`) and maps them to PyTorch variants for compatibility.
+- Subject-wise split requires at least 2 participants.
+- Raw EEG data is intentionally not committed to Git.

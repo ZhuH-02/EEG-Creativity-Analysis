@@ -1,0 +1,10 @@
+class            precision    recall  f1-score   support
+
+RST                 0.6724    0.5887    0.6278       868
+IDG                 0.3556    0.0850    0.1372       753
+IDE                 0.3857    0.5085    0.4387       763
+IDR                 0.0988    0.3711    0.1561       159
+
+accuracy                                0.4019      2543
+macro avg           0.3781    0.3883    0.3399      2543
+weighted avg        0.4567    0.4019    0.3963      2543

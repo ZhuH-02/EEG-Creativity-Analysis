@@ -119,76 +119,32 @@ VALIDATION_SIZE = 0.2
 RANDOM_SEED = 42
 
 # ============================================================================
-# MODEL CONFIGURATION - WEEK 1 (Baseline)
+# PYTORCH MODEL CONFIGURATION
 # ============================================================================
 
-# Logistic Regression parameters
-BASELINE_MODEL_CONFIG = {
-    'max_iter': 1000,
-    'solver': 'lbfgs',      # 'lbfgs', 'liblinear', 'newton-cg', 'sag', 'saga'
-    'C': 1.0,               # Regularization strength (lower = stronger regularization)
-    'random_state': RANDOM_SEED,
-    'class_weight': 'balanced',  # Handle class imbalance
+# Baseline model variants to run in code/app.py
+MODEL_VARIANTS = ["torch_linear", "torch_mlp"]
+
+# Simple linear classifier (single fully connected layer)
+TORCH_LINEAR_CONFIG = {
+    "learning_rate": 1e-3,
+    "weight_decay": 1e-4,
+    "batch_size": 256,
+    "epochs": 80,
+    "device": "auto",   # "auto", "cpu", or "cuda"
+    "verbose": True,
 }
 
-# Whether to standardize features before training
-STANDARDIZE_FEATURES = True
-
-# ============================================================================
-# MODEL CONFIGURATION - WEEK 2+ (Advanced Models)
-# ============================================================================
-
-# Random Forest parameters
-RF_CONFIG = {
-    'n_estimators': 100,
-    'max_depth': 10,
-    'min_samples_split': 5,
-    'min_samples_leaf': 2,
-    'random_state': RANDOM_SEED,
-}
-
-# Support Vector Machine parameters
-SVM_CONFIG = {
-    'kernel': 'rbf',        # 'linear', 'poly', 'rbf', 'sigmoid'
-    'C': 1.0,
-    'gamma': 'scale',
-    'random_state': RANDOM_SEED,
-}
-
-# XGBoost parameters
-XGBOOST_CONFIG = {
-    'n_estimators': 100,
-    'max_depth': 6,
-    'learning_rate': 0.1,
-    'random_state': RANDOM_SEED,
-}
-
-# ============================================================================
-# DEEP LEARNING CONFIGURATION - WEEK 3+
-# ============================================================================
-
-# CNN parameters
-CNN_CONFIG = {
-    'input_shape': None,           # Will be determined by data
-    'kernel_size': 5,
-    'num_filters': [32, 64, 128],
-    'dropout_rate': 0.3,
-    'learning_rate': 0.001,
-    'batch_size': 32,
-    'epochs': 100,
-    'early_stopping_patience': 10,
-}
-
-# LSTM parameters
-LSTM_CONFIG = {
-    'input_shape': None,           # Will be determined by data
-    'units': [64, 32],
-    'dropout_rate': 0.3,
-    'learning_rate': 0.001,
-    'batch_size': 32,
-    'epochs': 100,
-    'early_stopping_patience': 10,
-    'bidirectional': True,
+# Multi-layer perceptron baseline
+TORCH_MLP_CONFIG = {
+    "hidden_dims": [64, 32],
+    "dropout": 0.2,
+    "learning_rate": 1e-3,
+    "weight_decay": 1e-4,
+    "batch_size": 256,
+    "epochs": 120,
+    "device": "auto",   # "auto", "cpu", or "cuda"
+    "verbose": True,
 }
 
 # ============================================================================
@@ -258,7 +214,7 @@ TROUBLESHOOTING:
 CUSTOMIZATION:
 - Modify FREQUENCY_BANDS if studying specific brain rhythms
 - Adjust WINDOW_SIZE based on your analysis window duration
-- Tune model parameters in MODEL_CONFIG dicts based on results
+- Tune model parameters in TORCH_LINEAR_CONFIG / TORCH_MLP_CONFIG based on results
 - Change TEST_SIZE for different train-test splits
 
 For more information, see README.md and 5_WEEK_DEVELOPMENT_PLAN.md
