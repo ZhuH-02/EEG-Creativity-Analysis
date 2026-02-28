@@ -1,0 +1,49 @@
+{
+  "data_dir": "D:\\Zhu\\AI Project\\EEG Creativity Analysis\\EEG data",
+  "participants": [
+    "P2",
+    "P3",
+    "P4"
+  ],
+  "model": "torch_linear",
+  "hidden_layers": "64,32",
+  "dropout": 0.2,
+  "lr": 0.001,
+  "weight_decay": 0.0001,
+  "batch_size": 128,
+  "epochs": 2,
+  "patience": 1,
+  "seed": 42,
+  "sampling_rate": 500,
+  "train_ratio": 0.7,
+  "val_ratio": 0.15,
+  "test_ratio": 0.15,
+  "device": "auto",
+  "tag": "smoke_m2",
+  "runs_dir": "runs",
+  "inference_batch_size": 0,
+  "warmup_batches": 3,
+  "num_workers": 0,
+  "profile": true,
+  "use_class_weights": true,
+  "use_freq_features": true,
+  "verbose": true,
+  "hidden_layers_resolved": [
+    64,
+    32
+  ],
+  "phase_code_map": {
+    "RST": 0,
+    "IDG": 1,
+    "IDE": 2,
+    "IDR": 3
+  },
+  "json_phase_to_canonical": {
+    "rest": "RST",
+    "idea generation": "IDG",
+    "idea evolution": "IDE",
+    "idea rating": "IDR"
+  },
+  "resolved_device": "cpu",
+  "run_dir": "runs\\20260227_193412_torch_linear_smoke_m2"
+}

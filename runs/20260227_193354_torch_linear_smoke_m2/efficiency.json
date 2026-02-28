@@ -1,0 +1,30 @@
+{
+  "training": {
+    "total_training_time_sec": 0.15386170000419952,
+    "epochs_ran": 2,
+    "time_per_epoch_sec_mean": 0.07428980000258889,
+    "time_per_epoch_sec": [
+      0.13408200000412762,
+      0.01449760000105016
+    ],
+    "early_stopped": false,
+    "best_epoch": 2,
+    "peak_ram_mb": 385.23828125,
+    "peak_vram_mb": null,
+    "parameter_count": 48,
+    "checkpoint_size_bytes": {
+      "best_model.pt": 2685,
+      "last_model.pt": 2685
+    }
+  },
+  "inference": {
+    "latency_per_sample_ms_p50": 0.00018515618194214767,
+    "latency_per_sample_ms_p90": 0.00019531250927684596,
+    "throughput_samples_per_sec": 477805.4823159902,
+    "peak_ram_mb": 410.55078125,
+    "peak_vram_mb": null,
+    "n_samples_profiled": 479,
+    "warmup_batches": 3,
+    "batch_size": 128
+  }
+}

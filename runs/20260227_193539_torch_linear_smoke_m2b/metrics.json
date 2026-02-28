@@ -1,0 +1,212 @@
+{
+  "timestamp": "20260227_193539",
+  "model_type": "torch_linear",
+  "hyperparameters": {
+    "hidden_layers": [],
+    "dropout": 0.0,
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "batch_size": 128,
+    "epochs": 1,
+    "patience": 1,
+    "use_class_weights": true
+  },
+  "features": {
+    "use_freq_features": true,
+    "n_features": 11,
+    "feature_names": [
+      "mean",
+      "std",
+      "var",
+      "max",
+      "min",
+      "rms",
+      "delta_power",
+      "theta_power",
+      "alpha_power",
+      "beta_power",
+      "gamma_power"
+    ]
+  },
+  "seed": 42,
+  "split_subjects": {
+    "train": [
+      "P4"
+    ],
+    "val": [
+      "P3"
+    ],
+    "test": [
+      "P2"
+    ]
+  },
+  "device": "cpu",
+  "torch_version": "2.10.0+cpu",
+  "dataset": {
+    "n_total": 1995,
+    "n_train": 847,
+    "n_val": 669,
+    "n_test": 479,
+    "label_distribution_train": {
+      "0": 296,
+      "1": 171,
+      "2": 315,
+      "3": 65
+    },
+    "label_distribution_val": {
+      "0": 288,
+      "1": 75,
+      "2": 279,
+      "3": 27
+    },
+    "label_distribution_test": {
+      "0": 294,
+      "1": 47,
+      "2": 107,
+      "3": 31
+    }
+  },
+  "validation": {
+    "accuracy": 0.2944693572496263,
+    "precision_macro": 0.2758054728309977,
+    "precision_micro": 0.2944693572496263,
+    "precision_weighted": 0.43695020463403983,
+    "recall_macro": 0.22778039127837513,
+    "recall_micro": 0.2944693572496263,
+    "recall_weighted": 0.2944693572496263,
+    "f1_macro": 0.18369152925600749,
+    "f1_micro": 0.2944693572496263,
+    "f1_weighted": 0.27476816784891567,
+    "auroc_ovr_macro": 0.4825433261092388,
+    "auroc_ovr_weighted": 0.5622115179120146,
+    "pr_auc_ovr_macro": 0.28373251844688574,
+    "pr_auc_ovr_weighted": 0.43923315292675696,
+    "per_class": {
+      "0": {
+        "precision": 0.5,
+        "recall": 0.03819444444444445,
+        "f1": 0.07096774193548389,
+        "support": 288
+      },
+      "1": {
+        "precision": 0.07272727272727272,
+        "recall": 0.05333333333333334,
+        "f1": 0.061538461538461535,
+        "support": 75
+      },
+      "2": {
+        "precision": 0.5100864553314121,
+        "recall": 0.6344086021505376,
+        "f1": 0.5654952076677315,
+        "support": 279
+      },
+      "3": {
+        "precision": 0.02040816326530612,
+        "recall": 0.18518518518518517,
+        "f1": 0.03676470588235294,
+        "support": 27
+      }
+    },
+    "confusion_matrix": [
+      [
+        11,
+        34,
+        112,
+        131
+      ],
+      [
+        2,
+        4,
+        44,
+        25
+      ],
+      [
+        5,
+        13,
+        177,
+        84
+      ],
+      [
+        4,
+        4,
+        14,
+        5
+      ]
+    ]
+  },
+  "test": {
+    "accuracy": 0.4572025052192067,
+    "precision_macro": 0.32632063882063883,
+    "precision_micro": 0.4572025052192067,
+    "precision_weighted": 0.6174116325473319,
+    "recall_macro": 0.32743624393483783,
+    "recall_micro": 0.4572025052192067,
+    "recall_weighted": 0.4572025052192067,
+    "f1_macro": 0.2754977058252366,
+    "f1_micro": 0.4572025052192067,
+    "f1_weighted": 0.46491780122933907,
+    "auroc_ovr_macro": 0.5594427212385078,
+    "auroc_ovr_weighted": 0.68038448011426,
+    "pr_auc_ovr_macro": 0.32245016405744065,
+    "pr_auc_ovr_weighted": 0.5926878773869029,
+    "per_class": {
+      "0": {
+        "precision": 0.8783783783783784,
+        "recall": 0.4421768707482993,
+        "f1": 0.5882352941176471,
+        "support": 294
+      },
+      "1": {
+        "precision": 0.13636363636363635,
+        "recall": 0.06382978723404255,
+        "f1": 0.08695652173913043,
+        "support": 47
+      },
+      "2": {
+        "precision": 0.2905405405405405,
+        "recall": 0.8037383177570093,
+        "f1": 0.4267990074441687,
+        "support": 107
+      },
+      "3": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 31
+      }
+    },
+    "confusion_matrix": [
+      [
+        130,
+        13,
+        144,
+        7
+      ],
+      [
+        4,
+        3,
+        40,
+        0
+      ],
+      [
+        12,
+        3,
+        86,
+        6
+      ],
+      [
+        2,
+        3,
+        26,
+        0
+      ]
+    ]
+  },
+  "early_stopping": {
+    "enabled": true,
+    "best_epoch": 1,
+    "best_val_macro_f1": 0.18369152925600749,
+    "stopped_early": false,
+    "epochs_ran": 1
+  }
+}
