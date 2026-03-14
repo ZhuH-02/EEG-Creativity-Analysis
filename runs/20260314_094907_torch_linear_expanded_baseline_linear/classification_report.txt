@@ -1,0 +1,34 @@
+Validation Classification Report (best model)
+
+class            precision    recall  f1-score   support
+
+RST                 0.4513    0.8002    0.5771      1176
+IDG                 0.3680    0.1357    0.1983       678
+IDE                 0.5308    0.2464    0.3366      1258
+IDR                 0.0843    0.1473    0.1072       258
+
+accuracy                                0.4098      3370
+macro avg           0.3586    0.3324    0.3048      3370
+micro avg           0.4098    0.4098    0.4098      3370
+weighted avg        0.4361    0.4098    0.3751      3370
+
+AUROC OvR macro=0.6087714335430852 weighted=0.6316039305387604
+PR-AUC OvR macro=0.3513835021045466 weighted=0.436775244275916
+
+
+Test Classification Report (best model)
+
+class            precision    recall  f1-score   support
+
+RST                 0.5872    0.3746    0.4574      1204
+IDG                 0.1846    0.0235    0.0417       510
+IDE                 0.4124    0.6014    0.4893      1124
+IDR                 0.0658    0.1888    0.0976       196
+
+accuracy                                0.3876      3034
+macro avg           0.3125    0.2971    0.2715      3034
+micro avg           0.3876    0.3876    0.3876      3034
+weighted avg        0.4211    0.3876    0.3761      3034
+
+AUROC OvR macro=0.5680164771084669 weighted=0.5986254870441978
+PR-AUC OvR macro=0.3090939229599703 weighted=0.4161547507553202

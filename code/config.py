@@ -14,7 +14,35 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = str(PROJECT_ROOT / "EEG data")
 
 # Participants to analyze (modify based on available data)
-PARTICIPANTS = ["P2", "P3", "P4", "P5", "P6", "P7", "P8", "P9", "P10"]
+PARTICIPANTS = [
+    "P2",
+    "P3",
+    "P4",
+    "P5",
+    "P6",
+    "P7",
+    "P8",
+    "P9",
+    "P10",
+    "P11",
+    "P12",
+    "P13",
+    "P14",
+    "P15",
+    "P16",
+    "P17",
+    "P18",
+    "P19",
+    "P20",
+    "P21",
+    "P22",
+    "P23",
+    "P24",
+    "P25",
+    "P26",
+    "P27",
+    "P28",
+]
 
 # Canonical phase labels used by the baseline classifier.
 # Keep codes stable for reproducibility.
