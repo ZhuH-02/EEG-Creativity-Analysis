@@ -1,18 +1,27 @@
 # EEG Creativity Analysis
 
-Reproducible EEG pipeline in Python + PyTorch for:
+Reproducible EEG phase-classification pipeline in Python and PyTorch for:
 
-- Phase 1 data auditing and feature extraction
-- Baseline multiclass classification of creativity-task phases
+- EEG data auditing and feature extraction
+- Subject-wise training, validation, and test evaluation
+- Inference efficiency profiling
+- Failure analysis, robustness testing, monitoring simulation, and adaptation experiments
 
-## Current Status (February 28, 2026)
+## Overview
 
-- Baseline training is fully PyTorch (`torch_linear`, `torch_mlp`) in `code/app.py`
-- Subject-wise split is enabled (participant-level grouping)
-- Phase 1 audit outputs are generated under `outputs/phase1_data_selection/`
-- Current baseline runs exist under:
-  - `results/baseline/torch_linear/20260227_190331/`
-  - `results/baseline/torch_mlp/20260227_190336/`
+The project uses participant JSON files (`sub_XX.json`) as the main source for segmented EEG windows. From those windows, the code extracts a compact feature set with time-domain and frequency-band statistics, standardizes the features, and trains PyTorch classifiers to predict creativity-task phases.
+
+The current codebase supports two main workflows:
+
+- `code/app.py`: baseline subject-wise train/test experiments
+- `code/train_milestone2.py`: expanded training pipeline with train/val/test split, early stopping, richer metrics, saved checkpoints, and profiling
+
+On top of that, the repository now includes separate CLIs for:
+
+- anticipated failure checks and stress tests
+- robustness, calibration, and FGSM evaluation
+- offline monitoring simulation
+- drift adaptation experiments
 
 ## Dataset
 
@@ -27,6 +36,8 @@ EEG data/
   Participant-2/
     sub_02.json
     P2.eeg
+    P2.vhdr
+    P2.vmrk
   Participant-3/
     sub_03.json
     P3.eeg
@@ -35,13 +46,13 @@ EEG data/
 
 File usage:
 
-- `sub_XX.json`: primary training/evaluation source for `code/app.py`
-- `P*.eeg`: raw EEG stream (used by Phase 1 fallback audit loader)
-- `P*.vhdr`, `P*.vmrk`: optional legacy metadata, not required for baseline training
+- `sub_XX.json`: primary training and evaluation source
+- `P*.eeg`: raw EEG stream used by the audit workflow
+- `P*.vhdr`, `P*.vmrk`: optional metadata files
 
 ## Label Mapping
 
-`app.py` maps text labels to canonical classes:
+Canonical labels used across training and evaluation:
 
 - `RST` -> `0` (Rest)
 - `IDG` -> `1` (Idea Generation)
@@ -53,21 +64,31 @@ File usage:
 ```text
 .
 ├── code/
+│   ├── adaptation_eval.py
+│   ├── analysis_utils.py
 │   ├── app.py
 │   ├── config.py
-│   └── phase1_data_selection_audit.py
+│   ├── failure_checks.py
+│   ├── monitoring_sim.py
+│   ├── phase1_data_selection_audit.py
+│   ├── report_plots.py
+│   ├── robustness_eval.py
+│   └── train_milestone2.py
+├── notebooks/
 ├── outputs/
 │   └── phase1_data_selection/
 ├── results/
 │   └── baseline/
-│       ├── torch_linear/
-│       └── torch_mlp/
-├── notebooks/
+├── runs/
+│   ├── <training runs>/
+│   └── final_eval/
 ├── requirements.txt
-└── EEG data/                      # local-only, gitignored
+└── EEG data/
 ```
 
-## Setup (Windows PowerShell)
+## Setup
+
+Windows PowerShell:
 
 ```powershell
 python -m venv .venv
@@ -75,24 +96,26 @@ python -m venv .venv
 python -m pip install -r requirements.txt
 ```
 
-If you see `ModuleNotFoundError`, ensure VS Code uses:
+If VS Code cannot import project modules, ensure the interpreter is:
 
 `<workspace>\.venv\Scripts\python.exe`
 
 ## Configuration
 
-Main settings are in `code/config.py`:
+Main project settings live in `code/config.py`.
 
-- Data and participants: `DATA_DIR`, `PARTICIPANTS`
-- Signal/windowing: `SAMPLING_RATE`, `WINDOW_SIZE`, `WINDOW_OVERLAP`
-- Split and reproducibility: `TEST_SIZE`, `RANDOM_SEED`
-- Model variants and hyperparameters:
-  - `MODEL_VARIANTS`
-  - `TORCH_LINEAR_CONFIG`
-  - `TORCH_MLP_CONFIG`
-- Output settings: `RESULTS_DIR`, `SAVE_PLOTS`, `PLOT_FORMAT`, `PLOT_DPI`
+Important settings:
 
-## Run
+- `DATA_DIR`, `PARTICIPANTS`
+- `SAMPLING_RATE`, `WINDOW_SIZE`, `WINDOW_OVERLAP`
+- `RANDOM_SEED`
+- `PHASE_CODE_MAP`, `JSON_PHASE_TO_CANONICAL`
+- `TORCH_LINEAR_CONFIG`, `TORCH_MLP_CONFIG`
+- `RESULTS_DIR`
+
+Training runs also persist their resolved configuration in each run folder as `config.json`.
+
+## Main Workflows
 
 ### 1. Phase 1 Audit
 
@@ -100,59 +123,158 @@ Main settings are in `code/config.py`:
 python code/phase1_data_selection_audit.py
 ```
 
-Outputs written to `outputs/phase1_data_selection/`:
+Outputs:
 
-- `features.csv`
-- `file_audit.json`
-- `missingness.csv`
-- `summary_stats.csv`
-- `duplicates.csv`
-- `outliers_summary.csv`
-- `example_rows.csv`
-- `run_metadata.json`
-- `plot_histograms.png`
-- `plot_corr_heatmap.png`
-- `plot_windows_per_participant.png`
+- `outputs/phase1_data_selection/features.csv`
+- `outputs/phase1_data_selection/file_audit.json`
+- `outputs/phase1_data_selection/missingness.csv`
+- `outputs/phase1_data_selection/summary_stats.csv`
+- `outputs/phase1_data_selection/duplicates.csv`
+- `outputs/phase1_data_selection/outliers_summary.csv`
+- `outputs/phase1_data_selection/example_rows.csv`
+- `outputs/phase1_data_selection/run_metadata.json`
+- `outputs/phase1_data_selection/plot_histograms.png`
+- `outputs/phase1_data_selection/plot_corr_heatmap.png`
+- `outputs/phase1_data_selection/plot_windows_per_participant.png`
 
-### 2. Baseline PyTorch Training
+### 2. Baseline Training
 
 ```powershell
 python code/app.py
 ```
 
-Behavior:
+This path:
 
-- loads configured `sub_*.json` files
-- extracts window-level time/frequency features
+- loads configured participant JSON files
+- extracts EEG window features
 - performs subject-wise train/test split
-- trains configured PyTorch variants
-- saves run artifacts per model
+- trains PyTorch linear and MLP baselines
+- saves baseline metrics and plots under `results/baseline/`
 
-Per-run output folder:
+### 3. Expanded Train/Val/Test Training
 
-`results/baseline/<model_name>/<YYYYMMDD_HHMMSS>/`
+```powershell
+python code/train_milestone2.py --model torch_mlp --tag expanded_baseline_mlp
+```
 
-Per-run files:
+This path adds:
 
+- participant-wise train/val/test split
+- early stopping on validation macro-F1
+- richer multiclass metrics
+- saved best and last checkpoints
+- learning curves
+- inference efficiency profiling
+
+Training artifacts are written to:
+
+`runs/<timestamp>_<model>_<tag>/`
+
+Expected files:
+
+- `best_model.pt`
+- `last_model.pt`
+- `config.json`
 - `metrics.json`
+- `efficiency.json`
+- `split_subjects.json`
 - `classification_report.txt`
 - `confusion_matrix.png`
-- `roc_curve.png` (binary-only)
+- `learning_curves.csv`
+- `learning_curves.png`
 
-## Latest Baseline Snapshot (February 27, 2026)
+## Final Evaluation Workflows
 
-From:
+All final evaluation scripts load an existing training run directory and write outputs under:
 
-- `results/baseline/torch_linear/20260227_190331/metrics.json`
-- `results/baseline/torch_mlp/20260227_190336/metrics.json`
+`runs/final_eval/<timestamp>_<run_name>/`
 
-Metrics:
+Example source model directory:
 
-- `torch_linear`: accuracy `0.3968`, weighted F1 `0.3833`, weighted OvR ROC-AUC `0.6703`
-- `torch_mlp`: accuracy `0.4019`, weighted F1 `0.3963`, weighted OvR ROC-AUC `0.6726`
+`runs/20260314_095455_torch_mlp_expanded_baseline_mlp/`
+
+### Failure Checks and Stress Tests
+
+```powershell
+python code/failure_checks.py --model_dir runs/20260314_095455_torch_mlp_expanded_baseline_mlp --output_dir runs/final_eval --run_name failure_checks
+```
+
+Outputs:
+
+- `stress_test_metrics.csv`
+- `failure_catalog.json`
+- `failure_catalog.md`
+- `failure_summary.json`
+- `failure_examples.csv` when flags are found
+- `clean_classification_report.txt`
+
+### Robustness, Calibration, and FGSM
+
+```powershell
+python code/robustness_eval.py --model_dir runs/20260314_095455_torch_mlp_expanded_baseline_mlp --output_dir runs/final_eval --run_name robustness_eval
+```
+
+Outputs:
+
+- `robustness_metrics.csv`
+- `fgsm_metrics.csv`
+- `calibration_metrics.json`
+- `reliability_bins.csv`
+- `robustness_curve.png`
+- `reliability_diagram.png`
+- `confidence_histogram_clean.png`
+- `confidence_histogram_adv.png`
+- `clean_vs_perturbed_efficiency.csv`
+
+### Monitoring Simulation
+
+```powershell
+python code/monitoring_sim.py --model_dir runs/20260314_095455_torch_mlp_expanded_baseline_mlp --output_dir runs/final_eval --run_name monitoring_sim
+```
+
+Outputs:
+
+- `monitoring_log.csv`
+- `drift_metrics.csv`
+- `alerts.json`
+- `monitoring_dashboard.png`
+
+### Adaptation Experiment
+
+```powershell
+python code/adaptation_eval.py --model_dir runs/20260314_095455_torch_mlp_expanded_baseline_mlp --output_dir runs/final_eval --run_name adaptation_eval
+```
+
+Outputs:
+
+- `adaptation_before_after.csv`
+- `adaptation_metrics.json`
+- `adaptation_efficiency.json`
+- `resolved_failure_examples.csv`
+- `adapted_model.pt`
+
+## Shared Utilities
+
+These scripts are internal support modules used by the CLIs above:
+
+- `code/analysis_utils.py`: artifact loading, split reconstruction, evaluation helpers, profiling helpers
+- `code/report_plots.py`: plotting helpers for calibration, robustness, and monitoring outputs
+
+## Current Verified Outputs
+
+The current repository contains successful smoke-run outputs under:
+
+- `runs/final_eval/20260314_104325_smoke_failure/`
+- `runs/final_eval/20260314_104706_smoke_robustness/`
+- `runs/final_eval/20260314_105302_smoke_monitoring/`
+- `runs/final_eval/20260314_105859_smoke_adaptation/`
+
+These were executed against:
+
+- `runs/20260314_095455_torch_mlp_expanded_baseline_mlp/`
 
 ## Notes
 
-- `app.py` still accepts legacy aliases (`logreg`, `xgboost`) and maps them to PyTorch variants for compatibility.
-- Subject-wise split requires at least 2 participants.
+- `app.py` keeps legacy alias handling for compatibility.
+- The final-evaluation scripts reuse the saved checkpoint format from `train_milestone2.py`.
 - Raw EEG data is intentionally not committed to Git.
