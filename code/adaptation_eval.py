@@ -26,6 +26,7 @@ from analysis_utils import (
     set_seed,
     summarize_feature_reference,
 )
+from report_plots import plot_adaptation_comparison, plot_efficiency_comparison, save_figure
 from train_milestone2 import compute_class_weights
 
 
@@ -290,6 +291,16 @@ def evaluate_before_after(
     return comparison_df, details
 
 
+def adaptation_efficiency_to_frame(efficiency_payload: Dict[str, Dict[str, Any]]) -> pd.DataFrame:
+    """Convert adaptation efficiency JSON payload to a plot-ready dataframe."""
+    rows: List[Dict[str, Any]] = []
+    for condition, metrics in efficiency_payload.items():
+        row = {"scenario": str(condition)}
+        row.update(metrics)
+        rows.append(row)
+    return pd.DataFrame(rows)
+
+
 def main() -> None:
     args = parse_args()
     set_seed(args.seed)
@@ -420,6 +431,17 @@ def main() -> None:
     save_json(output_dir / "adaptation_metrics.json", adaptation_metrics)
     save_json(output_dir / "adaptation_efficiency.json", adaptation_efficiency)
     save_csv(output_dir / "resolved_failure_examples.csv", resolved_examples.head(250))
+
+    saved_comparison_df = pd.read_csv(output_dir / "adaptation_before_after.csv")
+    adaptation_fig = plot_adaptation_comparison(saved_comparison_df, title="Adaptation Before vs After")
+    save_figure(adaptation_fig, output_dir / "adaptation_before_after.png")
+
+    adaptation_efficiency_df = adaptation_efficiency_to_frame(adaptation_efficiency)
+    efficiency_fig = plot_efficiency_comparison(
+        adaptation_efficiency_df,
+        title="Efficiency Comparison Across Adaptation Conditions",
+    )
+    save_figure(efficiency_fig, output_dir / "efficiency_comparison.png")
 
     torch.save(
         {

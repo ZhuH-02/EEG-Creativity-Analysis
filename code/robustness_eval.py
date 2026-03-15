@@ -27,6 +27,7 @@ from analysis_utils import (
 )
 from report_plots import (
     plot_confidence_histogram,
+    plot_efficiency_comparison,
     plot_reliability_diagram,
     plot_robustness_curve,
     save_figure,
@@ -483,6 +484,10 @@ def main() -> None:
         y_col="macro_f1",
         title="FGSM Robustness Curve",
     )
+    efficiency_comparison_fig = plot_efficiency_comparison(
+        efficiency_df,
+        title="Efficiency Comparison Across Robustness Conditions",
+    )
 
     save_csv(output_dir / "robustness_metrics.csv", robustness_df)
     save_csv(output_dir / "fgsm_metrics.csv", fgsm_df)
@@ -493,6 +498,7 @@ def main() -> None:
     save_figure(reliability_fig, output_dir / "reliability_diagram.png")
     save_figure(confidence_clean_fig, output_dir / "confidence_histogram_clean.png")
     save_figure(confidence_adv_fig, output_dir / "confidence_histogram_adv.png")
+    save_figure(efficiency_comparison_fig, output_dir / "efficiency_comparison.png")
     (output_dir / "clean_temperature_scaled_report.txt").write_text(temperature_result["classification_report"], encoding="utf-8")
     (output_dir / "calibration_summary.json").write_text(json.dumps({"raw_bins": raw_calibration_df.to_dict(orient="records")[:3]}, indent=2), encoding="utf-8")
 
@@ -509,4 +515,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

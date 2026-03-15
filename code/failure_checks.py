@@ -23,6 +23,7 @@ from analysis_utils import (
     set_seed,
     summarize_feature_reference,
 )
+from report_plots import plot_stress_test_summary, save_figure
 
 
 FAILURE_CATALOG: List[Dict[str, str]] = [
@@ -540,6 +541,8 @@ def main() -> None:
     }
 
     save_csv(output_dir / "stress_test_metrics.csv", stress_df)
+    stress_plot = plot_stress_test_summary(stress_df, title="Stress Test Summary")
+    save_figure(stress_plot, output_dir / "stress_test_summary.png")
     save_json(output_dir / "failure_catalog.json", FAILURE_CATALOG)
     save_json(output_dir / "failure_summary.json", failure_summary)
     if not failure_examples.empty:
@@ -559,4 +562,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
