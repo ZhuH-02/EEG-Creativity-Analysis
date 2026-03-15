@@ -1,0 +1,5 @@
+Monitoring simulation complete.
+Output directory: runs\final_eval\20260314_105302_smoke_monitoring
+Batches processed: 12
+Alerts raised: 16
+Mean drift score: 4.0243

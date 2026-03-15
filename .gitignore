@@ -7,6 +7,5 @@ __pycache__/
 # Raw EEG exports are too large for GitHub
 EEG data/
 
-# Generated evaluation outputs and packaged snapshots
-runs/final_eval/
+# Generated packaged snapshots
 project*.zip

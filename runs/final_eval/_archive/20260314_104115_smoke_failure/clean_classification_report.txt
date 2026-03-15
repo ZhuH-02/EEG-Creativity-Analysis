@@ -1,0 +1,14 @@
+class            precision    recall  f1-score   support
+
+RST                 0.6538    0.4626    0.5418      1204
+IDG                 0.2355    0.1275    0.1654       510
+IDE                 0.4251    0.6335    0.5088      1124
+IDR                 0.0996    0.1173    0.1077       196
+
+accuracy                                0.4473      3034
+macro avg           0.3535    0.3352    0.3309      3034
+micro avg           0.4473    0.4473    0.4473      3034
+weighted avg        0.4629    0.4473    0.4383      3034
+
+AUROC OvR macro=0.6560394591773837 weighted=0.6910073600834087
+PR-AUC OvR macro=0.3721589492266757 weighted=0.4947530389284964

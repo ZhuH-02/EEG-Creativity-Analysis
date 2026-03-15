@@ -2,7 +2,7 @@
 
 This guide runs the new Milestone-2 entrypoint:
 
-- `code/train_milestone2.py`
+- `code/train_pipeline.py`
 - participant-wise `train/val/test` split (no subject leakage)
 - early stopping on validation macro-F1
 - learning curves (`.csv` + `.png`)
@@ -20,13 +20,13 @@ python -m pip install -r requirements.txt
 ### 1) Baseline Linear
 
 ```powershell
-python code/train_milestone2.py --model torch_linear --tag baseline_linear
+python code/train_pipeline.py --model torch_linear --tag baseline_linear
 ```
 
 ### 2) Baseline MLP
 
 ```powershell
-python code/train_milestone2.py --model torch_mlp --hidden_layers 64,32 --dropout 0.2 --tag baseline_mlp
+python code/train_pipeline.py --model torch_mlp --hidden_layers 64,32 --dropout 0.2 --tag baseline_mlp
 ```
 
 ## Ablation Commands
@@ -34,13 +34,13 @@ python code/train_milestone2.py --model torch_mlp --hidden_layers 64,32 --dropou
 ### 3) Ablation: class weights OFF
 
 ```powershell
-python code/train_milestone2.py --model torch_linear --no-use_class_weights --tag ablation_no_weights
+python code/train_pipeline.py --model torch_linear --no-use_class_weights --tag ablation_no_weights
 ```
 
 ### 4) Ablation: frequency features OFF (time-domain only)
 
 ```powershell
-python code/train_milestone2.py --model torch_linear --no-use_freq_features --tag ablation_no_freq
+python code/train_pipeline.py --model torch_linear --no-use_freq_features --tag ablation_no_freq
 ```
 
 ## Profiling Command
@@ -48,13 +48,13 @@ python code/train_milestone2.py --model torch_linear --no-use_freq_features --ta
 ### 5) Profiling-focused run (keeps profiling enabled explicitly)
 
 ```powershell
-python code/train_milestone2.py --model torch_mlp --profile --inference_batch_size 256 --tag profiling
+python code/train_pipeline.py --model torch_mlp --profile --inference_batch_size 256 --tag profiling
 ```
 
 ## Optional Common Overrides
 
 ```powershell
-python code/train_milestone2.py `
+python code/train_pipeline.py `
   --model torch_mlp `
   --epochs 120 `
   --patience 15 `

@@ -45,7 +45,7 @@ from app import (
 def parse_args() -> argparse.Namespace:
     mlp_hidden_default = ",".join(str(v) for v in DEFAULT_MLP_CONFIG.get("hidden_dims", [64, 32]))
     parser = argparse.ArgumentParser(
-        description="Milestone-2 EEG phase training with participant-wise train/val/test split."
+        description="EEG phase training with participant-wise train/val/test split."
     )
     parser.add_argument("--data_dir", type=str, default=str(DEFAULT_DATA_DIR))
     parser.add_argument("--participants", type=str, default=",".join(DEFAULT_PARTICIPANTS))
@@ -624,7 +624,7 @@ def main() -> None:
 
     device = resolve_device(args.device)
     print("=" * 72)
-    print("Milestone-2 EEG Training")
+    print("EEG Training")
     print("=" * 72)
     print(f"Run directory: {out_dir}")
     print(f"Device: {device}")

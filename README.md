@@ -14,7 +14,7 @@ The project uses participant JSON files (`sub_XX.json`) as the main source for s
 The current codebase supports two main workflows:
 
 - `code/app.py`: baseline subject-wise train/test experiments
-- `code/train_milestone2.py`: expanded training pipeline with train/val/test split, early stopping, richer metrics, saved checkpoints, and profiling
+- `code/train_pipeline.py`: expanded training pipeline with train/val/test split, early stopping, richer metrics, saved checkpoints, and profiling
 
 On top of that, the repository now includes separate CLIs for:
 
@@ -73,7 +73,7 @@ Canonical labels used across training and evaluation:
 │   ├── phase1_data_selection_audit.py
 │   ├── report_plots.py
 │   ├── robustness_eval.py
-│   └── train_milestone2.py
+│   └── train_pipeline.py
 ├── notebooks/
 ├── outputs/
 │   └── phase1_data_selection/
@@ -154,7 +154,7 @@ This path:
 ### 3. Expanded Train/Val/Test Training
 
 ```powershell
-python code/train_milestone2.py --model torch_mlp --tag expanded_baseline_mlp
+python code/train_pipeline.py --model torch_mlp --tag expanded_baseline_mlp
 ```
 
 This path adds:
@@ -276,5 +276,5 @@ These were executed against:
 ## Notes
 
 - `app.py` keeps legacy alias handling for compatibility.
-- The final-evaluation scripts reuse the saved checkpoint format from `train_milestone2.py`.
+- The final-evaluation scripts reuse the saved checkpoint format from `train_pipeline.py`.
 - Raw EEG data is intentionally not committed to Git.

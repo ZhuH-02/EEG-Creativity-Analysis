@@ -27,7 +27,7 @@ from analysis_utils import (
     summarize_feature_reference,
 )
 from report_plots import plot_adaptation_comparison, plot_efficiency_comparison, save_figure
-from train_milestone2 import compute_class_weights
+from train_pipeline import compute_class_weights
 
 
 def parse_args() -> argparse.Namespace:

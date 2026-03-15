@@ -1,0 +1,123 @@
+{
+  "model_dir": "D:\\Zhu\\AI Project\\EEG Creativity Analysis\\runs\\20260314_095455_torch_mlp_expanded_baseline_mlp",
+  "output_dir": "D:\\Zhu\\AI Project\\EEG Creativity Analysis\\runs\\final_eval\\20260314_104325_smoke_failure",
+  "split": "test",
+  "schema_report": {
+    "valid": true,
+    "missing_features": [],
+    "extra_features": [],
+    "reordered_columns": [
+      "mean",
+      "std",
+      "var",
+      "max",
+      "min",
+      "rms",
+      "delta_power",
+      "theta_power",
+      "alpha_power",
+      "beta_power",
+      "gamma_power"
+    ]
+  },
+  "missingness_report": {
+    "threshold": 0.2,
+    "overall_missing_rate": 0.0,
+    "flagged_features": [],
+    "feature_missing_rates": {
+      "mean": 0.0,
+      "std": 0.0,
+      "var": 0.0,
+      "max": 0.0,
+      "min": 0.0,
+      "rms": 0.0,
+      "delta_power": 0.0,
+      "theta_power": 0.0,
+      "alpha_power": 0.0,
+      "beta_power": 0.0,
+      "gamma_power": 0.0
+    }
+  },
+  "range_report": {
+    "std_threshold": 4.0,
+    "flagged_features": {
+      "mean": {
+        "outlier_rate_std": 0.005603164139749505,
+        "tail_rate_q01_q99": 0.018787079762689517
+      },
+      "std": {
+        "outlier_rate_std": 0.0065919578114700065,
+        "tail_rate_q01_q99": 0.15622940013183917
+      },
+      "var": {
+        "outlier_rate_std": 0.01977587343441002,
+        "tail_rate_q01_q99": 0.15622940013183917
+      },
+      "max": {
+        "outlier_rate_std": 0.013183915622940013,
+        "tail_rate_q01_q99": 0.11601845748187212
+      },
+      "min": {
+        "outlier_rate_std": 0.0032959789057350032,
+        "tail_rate_q01_q99": 0.10580092287409361
+      },
+      "rms": {
+        "outlier_rate_std": 0.006262359920896506,
+        "tail_rate_q01_q99": 0.15557020435069216
+      },
+      "delta_power": {
+        "outlier_rate_std": 0.0036255767963085037,
+        "tail_rate_q01_q99": 0.04087013843111404
+      },
+      "theta_power": {
+        "outlier_rate_std": 0.006921555702043507,
+        "tail_rate_q01_q99": 0.033289386947923535
+      },
+      "alpha_power": {
+        "outlier_rate_std": 0.0013183915622940012,
+        "tail_rate_q01_q99": 0.02999340804218853
+      },
+      "beta_power": {
+        "outlier_rate_std": 0.04779169413315755,
+        "tail_rate_q01_q99": 0.24653922214897825
+      },
+      "gamma_power": {
+        "outlier_rate_std": 0.06591957811470006,
+        "tail_rate_q01_q99": 0.12425840474620962
+      }
+    },
+    "n_flagged_features": 11
+  },
+  "finite_report": {
+    "valid": true,
+    "nan_count": 0,
+    "inf_count": 0
+  },
+  "window_report": {
+    "expected_window_length": 11,
+    "actual_window_length": 11,
+    "valid": true
+  },
+  "post_prediction": {
+    "confidence_threshold": 0.55,
+    "low_confidence_rate": 0.8971654581410679,
+    "suspicious_high_confidence_anomaly_rate": 0.007580751483190508,
+    "overconfident_error_rate": 0.0013183915622940012
+  },
+  "clean_metrics": {
+    "accuracy": 0.44726433750823996,
+    "macro_f1": 0.33092616479073667,
+    "weighted_f1": 0.4382552012510617
+  },
+  "worst_stress_case": {
+    "scenario": "held_out_participant",
+    "severity": "P7",
+    "n_samples": 577,
+    "accuracy": 0.512998266897747,
+    "macro_f1": 0.2002179652253763,
+    "weighted_f1": 0.3734516673644882,
+    "mean_confidence": 0.5441653703692881,
+    "abstention_rate": NaN
+  },
+  "n_failure_examples": 2745
+}

@@ -25,7 +25,7 @@ from app import (
     FeatureStandardizer,
     build_feature_table,
 )
-from train_milestone2 import (
+from train_pipeline import (
     build_feature_names,
     format_classification_report,
     make_model,
