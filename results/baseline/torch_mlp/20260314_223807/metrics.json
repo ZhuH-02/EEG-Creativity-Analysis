@@ -1,0 +1,101 @@
+{
+  "metrics": {
+    "accuracy": 0.3762686567164179,
+    "precision": 0.401129384442694,
+    "recall": 0.3762686567164179,
+    "f1_score": 0.3442388560452205,
+    "roc_auc": 0.6344092528939385
+  },
+  "n_test": 6700,
+  "label_distribution_test": {
+    "0": 2394,
+    "1": 1362,
+    "2": 2508,
+    "3": 436
+  },
+  "class_labels": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "class_names": [
+    "RST",
+    "IDG",
+    "IDE",
+    "IDR"
+  ],
+  "config": {
+    "MODEL_NAME": "torch_mlp",
+    "MODEL_VARIANTS": [
+      "torch_linear",
+      "torch_mlp"
+    ],
+    "MODEL_CONFIG": {
+      "hidden_dims": [
+        64,
+        32
+      ],
+      "dropout": 0.2,
+      "learning_rate": 0.001,
+      "weight_decay": 0.0001,
+      "batch_size": 256,
+      "epochs": 120,
+      "device": "auto",
+      "verbose": true
+    },
+    "DATA_DIR": "D:\\Zhu\\AI Project\\EEG Creativity Analysis\\EEG data",
+    "PARTICIPANTS": [
+      "P2",
+      "P3",
+      "P4",
+      "P5",
+      "P6",
+      "P7",
+      "P8",
+      "P9",
+      "P10",
+      "P11",
+      "P12",
+      "P13",
+      "P14",
+      "P15",
+      "P16",
+      "P17",
+      "P18",
+      "P19",
+      "P20",
+      "P21",
+      "P22",
+      "P23",
+      "P24",
+      "P25",
+      "P26",
+      "P27",
+      "P28"
+    ],
+    "SAMPLING_RATE": 500,
+    "WINDOW_SIZE": 1000,
+    "WINDOW_OVERLAP": 0.5,
+    "TEST_SIZE": 0.3,
+    "RANDOM_SEED": 42,
+    "PHASE_CODE_MAP": {
+      "RST": 0,
+      "IDG": 1,
+      "IDE": 2,
+      "IDR": 3
+    },
+    "JSON_PHASE_TO_CANONICAL": {
+      "rest": "RST",
+      "idea generation": "IDG",
+      "idea evolution": "IDE",
+      "idea rating": "IDR"
+    },
+    "SAVE_PLOTS": true,
+    "PLOT_FORMAT": "png",
+    "PLOT_DPI": 150,
+    "TORCH_VERSION": "2.10.0+cpu",
+    "DEVICE": "cpu"
+  },
+  "created_at": "2026-03-14T22:38:07"
+}
