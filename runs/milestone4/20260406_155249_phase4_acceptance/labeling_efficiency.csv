@@ -1,0 +1,4 @@
+strategy,total_labels_reviewed,cycles_completed,mean_update_time_sec,drifted_macro_f1_final
+random,96,3,0.8545780666560555,0.36408375661905396
+uncertainty,96,3,0.028442000000116725,0.3650276362299795
+hybrid,96,3,0.03228073332381124,0.36429145490490294

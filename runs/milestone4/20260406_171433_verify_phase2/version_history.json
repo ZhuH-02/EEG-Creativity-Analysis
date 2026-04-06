@@ -1,0 +1,18 @@
+[
+  {
+    "version": 0,
+    "type": "initial",
+    "path": "runs\\milestone4\\20260406_171433_verify_phase2\\model_step_000.pt",
+    "parent_version": "",
+    "trigger_batch": "",
+    "trigger_reasons": ""
+  },
+  {
+    "version": 1,
+    "type": "continual_update",
+    "path": "runs\\milestone4\\20260406_171433_verify_phase2\\model_step_001.pt",
+    "parent_version": 0,
+    "trigger_batch": 5,
+    "trigger_reasons": "drift_score"
+  }
+]

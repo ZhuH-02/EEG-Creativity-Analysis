@@ -1,0 +1,7 @@
+Phase 4 acceptance checklist
+- Strategies evaluated: random, uncertainty
+- Query log rows: 64
+- Cycle metric rows: 4
+- Best strategy on drifted data: random
+- Strategy summary: runs\milestone4\20260406_171827_verify_phase4\strategy_summary.csv
+- Active learning curve: runs\milestone4\20260406_171827_verify_phase4\active_learning_curve.png

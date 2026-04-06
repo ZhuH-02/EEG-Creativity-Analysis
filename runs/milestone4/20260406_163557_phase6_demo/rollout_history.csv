@@ -1,0 +1,3 @@
+update_index,model_version,trigger_batch,trigger_reason,reviewed_samples_used,replay_samples_used,holdout_macro_f1_before,holdout_macro_f1_after,update_time_sec,peak_ram_mb_before,peak_ram_mb_after,best_val_macro_f1
+1,1,3,reviewed_label_threshold,24,10,0.0,0.0,1.5472343000001274,357.50390625,401.67578125,0.0
+2,2,6,reviewed_label_threshold,24,10,0.16666666666666666,0.25,0.01401589997112751,403.47265625,403.47265625,0.25

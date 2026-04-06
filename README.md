@@ -1,27 +1,22 @@
-# EEG Creativity Analysis
+﻿# EEG Creativity Analysis
 
 Reproducible EEG phase-classification pipeline in Python and PyTorch for:
 
 - EEG data auditing and feature extraction
-- Subject-wise training, validation, and test evaluation
-- Inference efficiency profiling
-- Failure analysis, robustness testing, monitoring simulation, and adaptation experiments
+- subject-wise training, validation, and test evaluation
+- failure analysis, robustness, monitoring, and adaptation
+- Milestone 4 continual learning, HITL, active learning, and end-to-end rollout
 
 ## Overview
 
-The project uses participant JSON files (`sub_XX.json`) as the main source for segmented EEG windows. From those windows, the code extracts a compact feature set with time-domain and frequency-band statistics, standardizes the features, and trains PyTorch classifiers to predict creativity-task phases.
+The project uses participant JSON files (`sub_XX.json`) as the main segmented EEG source. From those windows, the code extracts compact time-domain and frequency-band features, standardizes them, and trains PyTorch classifiers to predict creativity-task phases.
 
-The current codebase supports two main workflows:
+The repository now covers the full milestone sequence:
 
-- `code/app.py`: baseline subject-wise train/test experiments
-- `code/train_pipeline.py`: expanded training pipeline with train/val/test split, early stopping, richer metrics, saved checkpoints, and profiling
-
-On top of that, the repository now includes separate CLIs for:
-
-- anticipated failure checks and stress tests
-- robustness, calibration, and FGSM evaluation
-- offline monitoring simulation
-- drift adaptation experiments
+- `code/phase1_data_selection_audit.py`: audit and feature extraction from raw EEG artifacts
+- `code/train_pipeline.py`: Milestone 2 train/val/test training pipeline
+- `code/failure_checks.py`, `code/robustness_eval.py`, `code/monitoring_sim.py`, `code/adaptation_eval.py`: Milestone 3 evaluation suite
+- `code/continual_learning.py`, `code/hitl_active_learning.py`, `code/active_learning_eval.py`, `code/milestone4_pipeline.py`, `code/milestone4_report.py`, `code/demo_end_to_end.py`: Milestone 4 system components
 
 ## Dataset
 
@@ -52,8 +47,6 @@ File usage:
 
 ## Label Mapping
 
-Canonical labels used across training and evaluation:
-
 - `RST` -> `0` (Rest)
 - `IDG` -> `1` (Idea Generation)
 - `IDE` -> `2` (Idea Evolution)
@@ -64,11 +57,17 @@ Canonical labels used across training and evaluation:
 ```text
 .
 ├── code/
+│   ├── active_learning_eval.py
 │   ├── adaptation_eval.py
 │   ├── analysis_utils.py
 │   ├── app.py
 │   ├── config.py
+│   ├── continual_learning.py
+│   ├── demo_end_to_end.py
 │   ├── failure_checks.py
+│   ├── hitl_active_learning.py
+│   ├── milestone4_pipeline.py
+│   ├── milestone4_report.py
 │   ├── monitoring_sim.py
 │   ├── phase1_data_selection_audit.py
 │   ├── report_plots.py
@@ -76,14 +75,11 @@ Canonical labels used across training and evaluation:
 │   └── train_pipeline.py
 ├── notebooks/
 ├── outputs/
-│   └── phase1_data_selection/
 ├── results/
-│   └── baseline/
 ├── runs/
-│   ├── <training runs>/
-│   └── final_eval/
-├── requirements.txt
-└── EEG data/
+├── EEG data/
+├── MILESTONE4_SUBMISSION.md
+└── README.md
 ```
 
 ## Setup
@@ -115,7 +111,7 @@ Important settings:
 
 Training runs also persist their resolved configuration in each run folder as `config.json`.
 
-## Main Workflows
+## Core Workflows
 
 ### 1. Phase 1 Audit
 
@@ -123,7 +119,7 @@ Training runs also persist their resolved configuration in each run folder as `c
 python code/phase1_data_selection_audit.py
 ```
 
-Outputs:
+Main outputs:
 
 - `outputs/phase1_data_selection/features.csv`
 - `outputs/phase1_data_selection/file_audit.json`
@@ -132,7 +128,6 @@ Outputs:
 - `outputs/phase1_data_selection/duplicates.csv`
 - `outputs/phase1_data_selection/outliers_summary.csv`
 - `outputs/phase1_data_selection/example_rows.csv`
-- `outputs/phase1_data_selection/run_metadata.json`
 - `outputs/phase1_data_selection/plot_histograms.png`
 - `outputs/phase1_data_selection/plot_corr_heatmap.png`
 - `outputs/phase1_data_selection/plot_windows_per_participant.png`
@@ -157,15 +152,6 @@ This path:
 python code/train_pipeline.py --model torch_mlp --tag expanded_baseline_mlp
 ```
 
-This path adds:
-
-- participant-wise train/val/test split
-- early stopping on validation macro-F1
-- richer multiclass metrics
-- saved best and last checkpoints
-- learning curves
-- inference efficiency profiling
-
 Training artifacts are written to:
 
 `runs/<timestamp>_<model>_<tag>/`
@@ -183,98 +169,154 @@ Expected files:
 - `learning_curves.csv`
 - `learning_curves.png`
 
-## Final Evaluation Workflows
+## Milestone 3 Evaluation
 
-All final evaluation scripts load an existing training run directory and write outputs under:
+All Milestone 3 scripts load an existing training run and write outputs under `runs/final_eval/<timestamp>_<run_name>/`.
 
-`runs/final_eval/<timestamp>_<run_name>/`
-
-Example source model directory:
+Verified source model:
 
 `runs/20260314_095455_torch_mlp_expanded_baseline_mlp/`
 
-### Failure Checks and Stress Tests
+### Failure Checks
 
 ```powershell
 python code/failure_checks.py --model_dir runs/20260314_095455_torch_mlp_expanded_baseline_mlp --output_dir runs/final_eval --run_name failure_checks
 ```
 
-Outputs:
-
-- `stress_test_metrics.csv`
-- `failure_catalog.json`
-- `failure_catalog.md`
-- `failure_summary.json`
-- `failure_examples.csv` when flags are found
-- `clean_classification_report.txt`
-
-### Robustness, Calibration, and FGSM
+### Robustness and Calibration
 
 ```powershell
 python code/robustness_eval.py --model_dir runs/20260314_095455_torch_mlp_expanded_baseline_mlp --output_dir runs/final_eval --run_name robustness_eval
 ```
 
-Outputs:
-
-- `robustness_metrics.csv`
-- `fgsm_metrics.csv`
-- `calibration_metrics.json`
-- `reliability_bins.csv`
-- `robustness_curve.png`
-- `reliability_diagram.png`
-- `confidence_histogram_clean.png`
-- `confidence_histogram_adv.png`
-- `clean_vs_perturbed_efficiency.csv`
-
-### Monitoring Simulation
+### Monitoring
 
 ```powershell
 python code/monitoring_sim.py --model_dir runs/20260314_095455_torch_mlp_expanded_baseline_mlp --output_dir runs/final_eval --run_name monitoring_sim
 ```
 
-Outputs:
-
-- `monitoring_log.csv`
-- `drift_metrics.csv`
-- `alerts.json`
-- `monitoring_dashboard.png`
-
-### Adaptation Experiment
+### Adaptation
 
 ```powershell
 python code/adaptation_eval.py --model_dir runs/20260314_095455_torch_mlp_expanded_baseline_mlp --output_dir runs/final_eval --run_name adaptation_eval
 ```
 
-Outputs:
+## Milestone 4 Workflows
 
-- `adaptation_before_after.csv`
-- `adaptation_metrics.json`
-- `adaptation_efficiency.json`
-- `resolved_failure_examples.csv`
-- `adapted_model.pt`
+Milestone 4 artifacts are written under:
+
+`runs/milestone4/<timestamp>_<run_name>/`
+
+### Phase 2: Continual Learning
+
+```powershell
+python code/continual_learning.py --model_dir runs/20260314_095455_torch_mlp_expanded_baseline_mlp --output_dir runs/milestone4 --run_name phase2_acceptance
+```
+
+Main outputs:
+
+- `continual_summary.json`
+- `batch_metrics.csv`
+- `update_history.csv`
+- `update_decisions.csv`
+- `buffer_stats.csv`
+- `model_versions.csv`
+
+### Phase 3: HITL Triggering
+
+```powershell
+python code/hitl_active_learning.py --model_dir runs/20260314_095455_torch_mlp_expanded_baseline_mlp --output_dir runs/milestone4 --run_name phase3_acceptance
+```
+
+Main outputs:
+
+- `review_summary.json`
+- `hitl_candidates.csv`
+- `human_feedback_log.csv`
+- `intervention_log.csv`
+
+### Phase 4: Active Learning
+
+```powershell
+python code/active_learning_eval.py --model_dir runs/20260314_095455_torch_mlp_expanded_baseline_mlp --output_dir runs/milestone4 --run_name phase4_acceptance
+```
+
+Main outputs:
+
+- `active_learning_summary.json`
+- `strategy_summary.csv`
+- `cycle_metrics.csv`
+- `query_log.csv`
+- `labeling_efficiency.csv`
+- `active_learning_curve.png`
+
+### Phase 5: End-to-End System
+
+```powershell
+python code/milestone4_pipeline.py --model_dir runs/20260314_095455_torch_mlp_expanded_baseline_mlp --output_dir runs/milestone4 --run_name phase5_acceptance
+```
+
+Main outputs:
+
+- `end_to_end_summary.json`
+- `system_run_log.csv`
+- `trigger_log.csv`
+- `query_feedback_log.csv`
+- `rollout_history.csv`
+- `model_versions.csv`
+- `system_timeline.png`
+
+### Phase 6: Final Report
+
+```powershell
+python code/milestone4_report.py `
+  --training_run_dir runs/20260314_095455_torch_mlp_expanded_baseline_mlp `
+  --phase2_dir runs/milestone4/20260406_152452_phase2_acceptance `
+  --phase3_dir runs/milestone4/20260406_153744_phase3_acceptance `
+  --phase4_dir runs/milestone4/20260406_155249_phase4_acceptance `
+  --phase5_dir runs/milestone4/20260406_161825_phase5_acceptance `
+  --output_dir runs/milestone4 `
+  --run_name phase6_acceptance
+```
+
+Main outputs:
+
+- `project_summary_table.csv`
+- `final_system_summary.json`
+- `artifact_manifest.json`
+- `system_comparison.png`
+- `submission_notes.md`
+
+### One-Command Demo
+
+```powershell
+python code/demo_end_to_end.py --model_dir runs/20260314_095455_torch_mlp_expanded_baseline_mlp --device cpu --with_report
+```
+
+This wrapper:
+
+- runs a smaller end-to-end Milestone 4 pipeline
+- saves a fresh demo output directory under `runs/milestone4/`
+- optionally generates a final report using the latest phase outputs
 
 ## Shared Utilities
 
-These scripts are internal support modules used by the CLIs above:
-
 - `code/analysis_utils.py`: artifact loading, split reconstruction, evaluation helpers, profiling helpers
-- `code/report_plots.py`: plotting helpers for calibration, robustness, and monitoring outputs
+- `code/report_plots.py`: plotting helpers for calibration, robustness, monitoring, and summary figures
 
-## Current Verified Outputs
+## Verified Milestone 4 Outputs
 
-The current repository contains successful smoke-run outputs under:
+Current verified acceptance runs:
 
-- `runs/final_eval/20260314_104325_smoke_failure/`
-- `runs/final_eval/20260314_104706_smoke_robustness/`
-- `runs/final_eval/20260314_105302_smoke_monitoring/`
-- `runs/final_eval/20260314_105859_smoke_adaptation/`
+- `runs/milestone4/20260406_152452_phase2_acceptance/`
+- `runs/milestone4/20260406_153744_phase3_acceptance/`
+- `runs/milestone4/20260406_155249_phase4_acceptance/`
+- `runs/milestone4/20260406_161825_phase5_acceptance/`
 
-These were executed against:
-
-- `runs/20260314_095455_torch_mlp_expanded_baseline_mlp/`
+Use `MILESTONE4_SUBMISSION.md` for the recommended demo order and submission checklist.
 
 ## Notes
 
 - `app.py` keeps legacy alias handling for compatibility.
-- The final-evaluation scripts reuse the saved checkpoint format from `train_pipeline.py`.
-- Raw EEG data is intentionally not committed to Git.
+- historical training configs may reference old absolute data paths, and `analysis_utils.py` now falls back to the local `EEG data/` directory when needed.
+- raw EEG data is intentionally not committed to Git.

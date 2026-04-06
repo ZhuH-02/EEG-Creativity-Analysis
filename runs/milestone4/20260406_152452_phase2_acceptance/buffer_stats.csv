@@ -1,0 +1,4 @@
+stage,step,buffer_size,capacity,utilization,class_0_count,class_1_count,class_2_count,class_3_count
+init,0,512,2048,0.25,128,128,128,128
+post_update,1,922,2048,0.4501953125,276,164,325,157
+post_update,2,1332,2048,0.650390625,480,194,474,184

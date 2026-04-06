@@ -1,0 +1,8 @@
+Phase 3 acceptance checklist
+- Batches processed: 12
+- Intervention batches: 12
+- Samples reviewed: 96
+- Samples corrected: 44
+- Review coverage: 0.0316
+- Human feedback log: runs\milestone4\20260406_171433_verify_phase3\human_feedback_log.csv
+- HITL candidate log: runs\milestone4\20260406_171433_verify_phase3\hitl_candidates.csv

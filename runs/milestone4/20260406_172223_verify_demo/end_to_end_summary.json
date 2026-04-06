@@ -1,0 +1,74 @@
+{
+  "source_model_dir": "D:\\AI Project\\EEG Creativity Analysis\\runs\\20260314_095455_torch_mlp_expanded_baseline_mlp",
+  "output_dir": "D:\\AI Project\\EEG Creativity Analysis\\runs\\milestone4\\20260406_172223_verify_demo",
+  "config": {
+    "model_dir": "runs/20260314_095455_torch_mlp_expanded_baseline_mlp",
+    "output_dir": "runs/milestone4",
+    "run_name": "verify_demo",
+    "device": "cpu",
+    "reference_split": "train",
+    "stream_split": "test",
+    "stream_batch_size": 256,
+    "batch_size": 256,
+    "num_workers": 0,
+    "seed": 42,
+    "top_k_features": 5,
+    "bins": 10,
+    "drift_start_batch": 4,
+    "drift_noise": 0.05,
+    "drift_scale": 1.2,
+    "drift_mean_shift": 0.25,
+    "class_prior_strength": 0.0,
+    "drift_trigger_threshold": 1.5,
+    "low_conf_fraction_trigger": 0.35,
+    "confidence_threshold": 0.55,
+    "high_confidence_threshold": 0.85,
+    "anomaly_threshold": 4.0,
+    "active_strategy": "uncertainty",
+    "query_budget_per_trigger": 8,
+    "candidate_multiplier": 4,
+    "annotator_accuracy": 1.0,
+    "annotation_time_sec_per_sample": 2.5,
+    "min_reviewed_for_update": 24,
+    "max_updates": 2,
+    "buffer_capacity": 2048,
+    "buffer_init_per_class": 128,
+    "clean_replay_ratio": 0.5,
+    "adaptation_split": 0.8,
+    "adaptation_epochs": 4,
+    "adaptation_patience": 2,
+    "adaptation_lr": 0.0005
+  },
+  "baseline_clean": {
+    "accuracy": 0.44726433750823996,
+    "macro_f1": 0.33092616479073667
+  },
+  "final_clean": {
+    "accuracy": 0.43935398813447596,
+    "macro_f1": 0.33197475731797915
+  },
+  "final_drifted": {
+    "accuracy": 0.486156888595913,
+    "macro_f1": 0.373491635557754
+  },
+  "system_counts": {
+    "batches_processed": 12,
+    "intervention_batches": 12,
+    "total_queries": 96,
+    "updates_completed": 2,
+    "final_model_version": 2
+  },
+  "resources": {
+    "estimated_human_time_sec": 240.0,
+    "final_buffer_size": 550,
+    "final_inference": {
+      "latency_per_sample_ms_p50": 0.0003585937520256266,
+      "latency_per_sample_ms_p90": 0.00047968751459848136,
+      "throughput_samples_per_sec": 457568.58088926104,
+      "peak_ram_mb": 405.75390625,
+      "peak_vram_mb": null,
+      "n_samples_profiled": 3034,
+      "warmup_batches": 3
+    }
+  }
+}

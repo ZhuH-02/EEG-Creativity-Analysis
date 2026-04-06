@@ -4,6 +4,7 @@ from pathlib import Path
 from typing import Dict, List, Optional, Sequence, Tuple
 
 import matplotlib.pyplot as plt
+from matplotlib.patches import FancyArrowPatch, FancyBboxPatch
 import numpy as np
 import pandas as pd
 
@@ -336,3 +337,152 @@ def save_figure(fig: plt.Figure, path: str | Path, dpi: int = 150) -> None:
     output_path.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(output_path, dpi=dpi, bbox_inches="tight")
     plt.close(fig)
+
+
+def _diagram_box(
+    ax: plt.Axes,
+    x: float,
+    y: float,
+    width: float,
+    height: float,
+    text: str,
+    facecolor: str,
+    edgecolor: str = "#243b53",
+) -> None:
+    patch = FancyBboxPatch(
+        (x, y),
+        width,
+        height,
+        boxstyle="round,pad=0.02,rounding_size=0.03",
+        linewidth=1.4,
+        facecolor=facecolor,
+        edgecolor=edgecolor,
+    )
+    ax.add_patch(patch)
+    ax.text(x + width / 2.0, y + height / 2.0, text, ha="center", va="center", fontsize=10, wrap=True)
+
+
+def _diagram_arrow(
+    ax: plt.Axes,
+    start: Tuple[float, float],
+    end: Tuple[float, float],
+    label: Optional[str] = None,
+    color: str = "#334e68",
+    connectionstyle: str = "arc3,rad=0.0",
+) -> None:
+    arrow = FancyArrowPatch(
+        start,
+        end,
+        arrowstyle="-|>",
+        mutation_scale=16,
+        linewidth=1.4,
+        color=color,
+        connectionstyle=connectionstyle,
+    )
+    ax.add_patch(arrow)
+    if label:
+        mid_x = (start[0] + end[0]) / 2.0
+        mid_y = (start[1] + end[1]) / 2.0
+        ax.text(mid_x, mid_y + 0.025, label, ha="center", va="bottom", fontsize=9, color=color)
+
+
+def plot_continual_learning_workflow(
+    title: str = "Continual Learning Workflow",
+) -> plt.Figure:
+    fig, ax = plt.subplots(figsize=(12, 5.5))
+    ax.set_xlim(0.0, 1.0)
+    ax.set_ylim(0.0, 1.0)
+    ax.axis("off")
+
+    boxes = [
+        (0.03, 0.36, 0.16, 0.24, "Stream Batch\nInference", "#d9f0ff"),
+        (0.23, 0.36, 0.18, 0.24, "Drift + Metric\nMonitoring", "#fde2c5"),
+        (0.45, 0.36, 0.16, 0.24, "Trigger Check\nThresholds", "#f9f0c1"),
+        (0.65, 0.36, 0.16, 0.24, "Replay Buffer\n+ Reviewed Data", "#d8f3dc"),
+        (0.84, 0.36, 0.13, 0.24, "Warm-Start\nUpdate", "#e9d8fd"),
+        (0.65, 0.72, 0.16, 0.16, "Versioned\nModel Save", "#ffd6d6"),
+    ]
+    for x, y, w, h, text, color in boxes:
+        _diagram_box(ax, x, y, w, h, text, color)
+
+    _diagram_arrow(ax, (0.19, 0.48), (0.23, 0.48), "batch metrics")
+    _diagram_arrow(ax, (0.41, 0.48), (0.45, 0.48), "drift score")
+    _diagram_arrow(ax, (0.61, 0.48), (0.65, 0.48), "triggered")
+    _diagram_arrow(ax, (0.81, 0.48), (0.84, 0.48), "adaptation set")
+    _diagram_arrow(ax, (0.905, 0.60), (0.73, 0.72), "new checkpoint", connectionstyle="arc3,rad=0.15")
+    _diagram_arrow(ax, (0.73, 0.72), (0.12, 0.62), "roll out next version", connectionstyle="arc3,rad=0.28")
+    ax.text(0.53, 0.14, "Key controls: batch size, replay ratio, buffer capacity, max updates, drift thresholds", ha="center", fontsize=10)
+    ax.set_title(title, fontsize=14, pad=12)
+    fig.tight_layout()
+    return fig
+
+
+def plot_active_learning_workflow(
+    title: str = "Active Learning + HITL Workflow",
+) -> plt.Figure:
+    fig, ax = plt.subplots(figsize=(12, 5.5))
+    ax.set_xlim(0.0, 1.0)
+    ax.set_ylim(0.0, 1.0)
+    ax.axis("off")
+
+    boxes = [
+        (0.03, 0.38, 0.15, 0.22, "Candidate Pool\nfrom Triggered Batch", "#d9f0ff"),
+        (0.22, 0.38, 0.17, 0.22, "Uncertainty /\nEntropy / Margin", "#fde2c5"),
+        (0.43, 0.38, 0.16, 0.22, "Diversity Re-rank\nHybrid Query", "#f9f0c1"),
+        (0.63, 0.38, 0.14, 0.22, "Human Review\nSynthetic Oracle", "#ffd6d6"),
+        (0.81, 0.38, 0.16, 0.22, "Curated Labels\nfor Update Queue", "#d8f3dc"),
+        (0.63, 0.72, 0.16, 0.14, "Label Budget /\nEfficiency Log", "#e9d8fd"),
+    ]
+    for x, y, w, h, text, color in boxes:
+        _diagram_box(ax, x, y, w, h, text, color)
+
+    _diagram_arrow(ax, (0.18, 0.49), (0.22, 0.49), "score")
+    _diagram_arrow(ax, (0.39, 0.49), (0.43, 0.49), "top-M")
+    _diagram_arrow(ax, (0.59, 0.49), (0.63, 0.49), "query set")
+    _diagram_arrow(ax, (0.77, 0.49), (0.81, 0.49), "reviewed labels")
+    _diagram_arrow(ax, (0.70, 0.60), (0.71, 0.72), "budget + latency")
+    _diagram_arrow(ax, (0.89, 0.38), (0.89, 0.18), "to continual update")
+    ax.text(0.50, 0.14, "Selection loop: trigger -> score -> query -> review -> update -> re-evaluate", ha="center", fontsize=10)
+    ax.set_title(title, fontsize=14, pad=12)
+    fig.tight_layout()
+    return fig
+
+
+def plot_system_architecture(
+    title: str = "Complete AI System Architecture",
+) -> plt.Figure:
+    fig, ax = plt.subplots(figsize=(13, 7))
+    ax.set_xlim(0.0, 1.0)
+    ax.set_ylim(0.0, 1.0)
+    ax.axis("off")
+
+    _diagram_box(ax, 0.04, 0.72, 0.18, 0.16, "Milestone 1\nData Audit + Feature Pipeline", "#d9f0ff")
+    _diagram_box(ax, 0.28, 0.72, 0.18, 0.16, "Milestone 2\nTrain / Validate / Test", "#d8f3dc")
+    _diagram_box(ax, 0.52, 0.72, 0.18, 0.16, "Milestone 3\nFailure / Robustness /\nMonitoring / Adaptation", "#fde2c5")
+    _diagram_box(ax, 0.76, 0.72, 0.18, 0.16, "Model Registry\nVersioned Checkpoints", "#ffd6d6")
+
+    _diagram_box(ax, 0.08, 0.42, 0.18, 0.16, "Production Stream\nInference", "#f9f0c1")
+    _diagram_box(ax, 0.33, 0.42, 0.18, 0.16, "Drift + Failure\nMonitoring", "#e9d8fd")
+    _diagram_box(ax, 0.58, 0.42, 0.16, 0.16, "HITL Review\nActive Query", "#ffd6d6")
+    _diagram_box(ax, 0.79, 0.42, 0.14, 0.16, "Continual\nUpdate", "#d8f3dc")
+
+    _diagram_box(ax, 0.33, 0.12, 0.18, 0.14, "Reporting Layer\nTables + Figures", "#d9f0ff")
+    _diagram_box(ax, 0.58, 0.12, 0.16, 0.14, "Demo / Rollout\nDecision Support", "#fde2c5")
+
+    _diagram_arrow(ax, (0.22, 0.80), (0.28, 0.80))
+    _diagram_arrow(ax, (0.46, 0.80), (0.52, 0.80))
+    _diagram_arrow(ax, (0.70, 0.80), (0.76, 0.80), "best model")
+
+    _diagram_arrow(ax, (0.85, 0.72), (0.17, 0.58), "deploy version", connectionstyle="arc3,rad=0.18")
+    _diagram_arrow(ax, (0.26, 0.50), (0.33, 0.50), "metrics")
+    _diagram_arrow(ax, (0.51, 0.50), (0.58, 0.50), "alerts / low confidence")
+    _diagram_arrow(ax, (0.74, 0.50), (0.79, 0.50), "reviewed labels")
+    _diagram_arrow(ax, (0.86, 0.58), (0.84, 0.72), "new version")
+
+    _diagram_arrow(ax, (0.42, 0.42), (0.42, 0.26), "logs")
+    _diagram_arrow(ax, (0.66, 0.42), (0.66, 0.26), "human time + decisions")
+    _diagram_arrow(ax, (0.74, 0.19), (0.84, 0.42), "rollout guidance", connectionstyle="arc3,rad=-0.15")
+
+    ax.set_title(title, fontsize=15, pad=12)
+    fig.tight_layout()
+    return fig

@@ -1,0 +1,68 @@
+[
+  {
+    "name": "covariate_shift",
+    "stage": "input",
+    "description": "Feature distribution changes relative to training windows can degrade learned decision boundaries.",
+    "mitigation": "Monitor PSI and Wasserstein distance, retrain or recalibrate when drift persists."
+  },
+  {
+    "name": "label_shift",
+    "stage": "monitoring",
+    "description": "Class prior changes can bias weighted metrics and confidence behavior.",
+    "mitigation": "Track prediction class mix and recalibrate thresholds when priors move."
+  },
+  {
+    "name": "concept_drift",
+    "stage": "model",
+    "description": "The relationship between EEG features and task phases may change over time or by cohort.",
+    "mitigation": "Run periodic adaptation experiments and evaluate on fresh held-out participants."
+  },
+  {
+    "name": "missing_critical_features",
+    "stage": "input",
+    "description": "Dropped or renamed features break checkpoint compatibility.",
+    "mitigation": "Validate feature schema before inference and reject incompatible payloads."
+  },
+  {
+    "name": "out_of_range_feature_values",
+    "stage": "input",
+    "description": "Extreme values indicate sensor issues, preprocessing bugs, or unseen operating conditions.",
+    "mitigation": "Compare against training reference ranges and flag anomalous windows."
+  },
+  {
+    "name": "sensor_channel_dropout",
+    "stage": "signal",
+    "description": "Missing channels alter the feature representation and can create brittle predictions.",
+    "mitigation": "Stress-test with feature dropout and guard upstream sensor health."
+  },
+  {
+    "name": "malformed_json_or_wrong_input_shape",
+    "stage": "runtime",
+    "description": "Bad payload shape or schema should fail fast instead of producing silent garbage outputs.",
+    "mitigation": "Reject empty inputs, wrong dimensionality, and malformed feature tables."
+  },
+  {
+    "name": "nan_inf_values",
+    "stage": "runtime",
+    "description": "NaN and Inf values can poison scaling, logits, and metrics.",
+    "mitigation": "Block inference when non-finite values are detected."
+  },
+  {
+    "name": "overconfident_wrong_predictions",
+    "stage": "post_prediction",
+    "description": "High-confidence errors are risky in downstream decision support.",
+    "mitigation": "Track confidence calibration and support abstention thresholds."
+  },
+  {
+    "name": "class_rarity_imbalance_degradation",
+    "stage": "evaluation",
+    "description": "Rare classes can collapse first under shift and imbalance.",
+    "mitigation": "Report macro-F1, per-class metrics, and stress-test skewed class mixes."
+  },
+  {
+    "name": "missing_checkpoint_or_schema_mismatch",
+    "stage": "startup",
+    "description": "Broken run folders or incompatible checkpoints should stop the evaluation cleanly.",
+    "mitigation": "Validate required files before loading and surface clear errors."
+  }
+]

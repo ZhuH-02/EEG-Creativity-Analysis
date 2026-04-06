@@ -1,0 +1,57 @@
+{
+  "source_model_dir": "D:\\AI Project\\EEG Creativity Analysis\\runs\\20260314_095455_torch_mlp_expanded_baseline_mlp",
+  "output_dir": "D:\\AI Project\\EEG Creativity Analysis\\runs\\milestone4\\20260406_171827_verify_phase4",
+  "config": {
+    "model_dir": "runs/20260314_095455_torch_mlp_expanded_baseline_mlp",
+    "output_dir": "runs/milestone4",
+    "run_name": "verify_phase4",
+    "device": "cpu",
+    "batch_size": 256,
+    "num_workers": 0,
+    "seed": 42,
+    "drift_noise": 0.05,
+    "drift_scale": 1.2,
+    "drift_mean_shift": 0.25,
+    "class_prior_strength": 0.0,
+    "cycles": 2,
+    "query_budget": 16,
+    "candidate_multiplier": 4,
+    "clean_replay_ratio": 0.5,
+    "adaptation_split": 0.8,
+    "adaptation_epochs": 4,
+    "adaptation_patience": 2,
+    "adaptation_lr": 0.0005,
+    "annotator_accuracy": 1.0,
+    "strategies": "random,uncertainty"
+  },
+  "baseline_clean": {
+    "macro_f1": 0.33092616479073667,
+    "accuracy": 0.44726433750823996
+  },
+  "baseline_drifted": {
+    "macro_f1": 0.3636137711813523,
+    "accuracy": 0.4818721160184575
+  },
+  "strategies": [
+    {
+      "strategy": "random",
+      "cycles_completed": 2,
+      "total_labels_reviewed": 32,
+      "clean_macro_f1_final": 0.32915529762020596,
+      "drifted_macro_f1_final": 0.3656117285975636,
+      "clean_macro_f1_gain": -0.00177086717053071,
+      "drifted_macro_f1_gain": 0.0019979574162112823,
+      "total_strategy_time_sec": 1.6534494999796152
+    },
+    {
+      "strategy": "uncertainty",
+      "cycles_completed": 2,
+      "total_labels_reviewed": 32,
+      "clean_macro_f1_final": 0.32637592746677285,
+      "drifted_macro_f1_final": 0.36448260449213843,
+      "clean_macro_f1_gain": -0.004550237323963813,
+      "drifted_macro_f1_gain": 0.0008688333107861324,
+      "total_strategy_time_sec": 0.22690050001256168
+    }
+  ]
+}

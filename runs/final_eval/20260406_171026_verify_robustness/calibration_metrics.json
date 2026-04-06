@@ -1,0 +1,14 @@
+{
+  "temperature": 0.8137520551681519,
+  "raw_nll": 1.319763013143344,
+  "temperature_scaled_nll": 1.3362939343026905,
+  "raw_ece": 0.073159383833084,
+  "temperature_scaled_ece": 0.05837639886891162,
+  "abstention": {
+    "coverage": 0.11008569545154911,
+    "abstention_rate": 0.8899143045484509,
+    "accepted_accuracy": 0.7125748502994012,
+    "accepted_macro_f1": 0.20913884007029876,
+    "accepted_weighted_f1": 0.5961083106195342
+  }
+}

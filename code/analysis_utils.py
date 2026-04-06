@@ -359,8 +359,15 @@ def load_dataset_for_run(bundle: ArtifactBundle) -> DatasetBundle:
         participants = [item.strip() for item in participants.split(",") if item.strip()]
     participants = [str(value) for value in participants]
 
+    configured_data_dir = Path(str(config.get("data_dir", DEFAULT_DATA_DIR)))
+    if not configured_data_dir.exists():
+        fallback_data_dir = Path(str(DEFAULT_DATA_DIR))
+        data_dir = fallback_data_dir if fallback_data_dir.exists() else configured_data_dir
+    else:
+        data_dir = configured_data_dir
+
     loader = EEGDataLoader(
-        data_dir=config.get("data_dir", DEFAULT_DATA_DIR),
+        data_dir=data_dir,
         participants=participants,
         phase_code_map=config.get("phase_code_map", DEFAULT_PHASE_CODE_MAP),
         json_phase_to_canonical=config.get("json_phase_to_canonical", DEFAULT_JSON_PHASE_TO_CANONICAL),

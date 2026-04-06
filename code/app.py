@@ -92,13 +92,13 @@ try:
     )
 except Exception:
     RANDOM_SEED = 42
-    DATA_DIR = "d:/Zhu/AI Project/EEG data"
+    DATA_DIR = str(Path.cwd() / "EEG data")
     PARTICIPANTS = ["P2", "P3", "P4"]
     SAMPLING_RATE = 500
     WINDOW_SIZE = 1000
     WINDOW_OVERLAP = 0.5
     TEST_SIZE = 0.3
-    RESULTS_DIR = "d:/Zhu/AI Project/results"
+    RESULTS_DIR = str(Path.cwd() / "results")
     SAVE_PLOTS = True
     PLOT_FORMAT = "png"
     PLOT_DPI = 150

@@ -1,0 +1,66 @@
+{
+  "source_model_dir": "D:\\AI Project\\EEG Creativity Analysis\\runs\\20260314_095455_torch_mlp_expanded_baseline_mlp",
+  "output_dir": "D:\\AI Project\\EEG Creativity Analysis\\runs\\milestone4\\20260406_152452_phase2_acceptance",
+  "config": {
+    "model_dir": "runs/20260314_095455_torch_mlp_expanded_baseline_mlp",
+    "output_dir": "runs/milestone4",
+    "run_name": "phase2_acceptance",
+    "device": "cpu",
+    "reference_split": "train",
+    "stream_split": "test",
+    "stream_batch_size": 256,
+    "batch_size": 256,
+    "num_workers": 0,
+    "seed": 42,
+    "rolling_window_batches": 3,
+    "top_k_features": 5,
+    "bins": 10,
+    "drift_start_batch": 4,
+    "drift_noise": 0.05,
+    "drift_scale": 1.2,
+    "drift_mean_shift": 0.25,
+    "class_prior_strength": 0.0,
+    "drift_trigger_threshold": 1.5,
+    "macro_f1_drop_threshold": 0.08,
+    "min_drift_batches_for_update": 2,
+    "max_updates": 2,
+    "adaptation_split": 0.8,
+    "replay_ratio": 0.5,
+    "buffer_capacity": 2048,
+    "buffer_init_per_class": 128,
+    "adaptation_epochs": 8,
+    "adaptation_patience": 3,
+    "adaptation_lr": 0.0005
+  },
+  "baseline_stream_metrics": {
+    "accuracy": 0.44726433750823996,
+    "macro_f1": 0.33092616479073667
+  },
+  "final_stream_metrics": {
+    "accuracy": 0.46407382992748847,
+    "macro_f1": 0.3504253639967537,
+    "weighted_f1": 0.459883527511045
+  },
+  "updates_completed": 2,
+  "final_model_version": 2,
+  "buffer": {
+    "capacity": 2048,
+    "initial_per_class": 128,
+    "final_size": 1332
+  },
+  "mean_batch_macro_f1": 0.3098950513491763,
+  "mean_drift_score": 2.6965678374133106,
+  "max_drift_score": 5.941479813055226,
+  "efficiency": {
+    "final_inference": {
+      "latency_per_sample_ms_p50": 0.0006464842954301275,
+      "latency_per_sample_ms_p90": 0.0008362384914599975,
+      "throughput_samples_per_sec": 281899.5234553991,
+      "peak_ram_mb": 405.1328125,
+      "peak_vram_mb": null,
+      "n_samples_profiled": 3034,
+      "warmup_batches": 3
+    },
+    "total_update_time_sec": 2.6153244999586605
+  }
+}

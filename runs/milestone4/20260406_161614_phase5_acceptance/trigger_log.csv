@@ -1,0 +1,16 @@
+batch_index,event_type,triggered,reason,query_count,drift_score,low_conf_fraction,model_version_before
+1,intervention,1,"drift,low_conf_fraction",16,5.389939623548666,0.5703125,0
+2,intervention,1,"drift,low_conf_fraction",16,5.941479813055226,0.5703125,0
+3,intervention,1,low_conf_fraction,16,1.132467160379155,0.82421875,0
+3,rollout,1,reviewed_label_threshold,0,1.132467160379155,0.82421875,0
+4,intervention,1,"drift,low_conf_fraction",16,3.134285501782286,0.8125,1
+5,intervention,1,"drift,low_conf_fraction",16,2.5583888055229913,0.94921875,1
+6,intervention,1,low_conf_fraction,16,1.0501574784663776,0.94140625,1
+6,rollout,1,reviewed_label_threshold,0,1.0501574784663776,0.94140625,1
+7,intervention,1,"drift,low_conf_fraction",16,1.8428398613701273,0.99609375,2
+8,intervention,1,"drift,low_conf_fraction",16,3.35654362251758,0.99609375,2
+9,intervention,1,"drift,low_conf_fraction",16,2.285505487588302,0.9921875,2
+9,rollout,1,reviewed_label_threshold,0,2.285505487588302,0.9921875,2
+10,intervention,1,"drift,low_conf_fraction",16,1.7092088854988348,1.0,3
+11,intervention,1,"drift,low_conf_fraction",16,2.4098550623134587,1.0,3
+12,intervention,1,"drift,low_conf_fraction",16,1.8499714467724253,0.981651376146789,3

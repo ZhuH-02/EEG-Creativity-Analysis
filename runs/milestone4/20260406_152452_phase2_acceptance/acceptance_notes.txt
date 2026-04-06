@@ -1,0 +1,9 @@
+Phase 2 acceptance checklist
+- Drift batches processed: 9
+- Continual updates completed: 2
+- Baseline stream macro-F1: 0.3309
+- Final stream macro-F1: 0.3504
+- Replay buffer final size: 1332
+- Metric trajectory plot: runs\milestone4\20260406_152452_phase2_acceptance\metric_trajectory.png
+- Update history table: runs\milestone4\20260406_152452_phase2_acceptance\update_history.csv
+- Update decision log: runs\milestone4\20260406_152452_phase2_acceptance\update_decisions.csv

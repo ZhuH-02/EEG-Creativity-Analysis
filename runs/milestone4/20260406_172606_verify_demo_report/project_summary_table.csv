@@ -1,0 +1,6 @@
+stage,source_dir,clean_accuracy,clean_macro_f1,clean_weighted_f1,drifted_accuracy,drifted_macro_f1,macro_f1_gain_vs_baseline,queries_or_reviews,updates_or_cycles,estimated_human_time_sec,throughput_samples_per_sec,peak_ram_mb,notes
+baseline_trainrun,D:\AI Project\EEG Creativity Analysis\runs\20260314_095455_torch_mlp_expanded_baseline_mlp,0.44726433750823996,0.33092616479073667,0.4382552012510617,,,0.0,0,0,0.0,269090.90909469465,418.48828125,Milestone 2 baseline test performance
+phase2_continual_learning,D:\AI Project\EEG Creativity Analysis\runs\milestone4\20260406_171433_verify_phase2,,,0.4292787172923975,0.43737640079103496,0.32558977312408277,-0.005336391666653895,0,1,0.0,398115.7083141237,405.3125,Replay buffer final size=922
+phase3_hitl,D:\AI Project\EEG Creativity Analysis\runs\milestone4\20260406_171433_verify_phase3,,,,,,,96,12,,,,"coverage=0.0316, correction_rate=0.4583"
+phase4_active_learning_best,D:\AI Project\EEG Creativity Analysis\runs\milestone4\20260406_171827_verify_phase4,,0.32915529762020596,,,0.3656117285975636,-0.00177086717053071,32,2,,,,Best strategy=random
+phase5_end_to_end_system,D:\AI Project\EEG Creativity Analysis\runs\milestone4\20260406_172223_verify_demo,0.43935398813447596,0.33197475731797915,,0.486156888595913,0.373491635557754,0.0010485925272424867,96,2,240.0,457568.58088926104,405.75390625,final_model_version=2

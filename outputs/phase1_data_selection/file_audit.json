@@ -1,14 +1,14 @@
 [
   {
     "participant_id":"P2",
-    "eeg_path":"D:\\Zhu\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-2\\P2.eeg",
-    "vhdr_path":"D:\\Zhu\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-2\\P2.vhdr",
-    "vmrk_path":"D:\\Zhu\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-2\\P2.vmrk",
+    "eeg_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-2\\P2.eeg",
+    "vhdr_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-2\\P2.vhdr",
+    "vmrk_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-2\\P2.vmrk",
     "eeg_exists":true,
-    "vhdr_exists":true,
-    "vmrk_exists":true,
-    "vhdr_is_html":true,
-    "vmrk_is_html":true,
+    "vhdr_exists":false,
+    "vmrk_exists":false,
+    "vhdr_is_html":false,
+    "vmrk_is_html":false,
     "vhdr_is_brainvision":false,
     "eeg_size_bytes":260570520,
     "layout_suggestions":[
@@ -52,14 +52,14 @@
   },
   {
     "participant_id":"P3",
-    "eeg_path":"D:\\Zhu\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-3\\P3.eeg",
-    "vhdr_path":"D:\\Zhu\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-3\\P3.vhdr",
-    "vmrk_path":"D:\\Zhu\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-3\\P3.vmrk",
+    "eeg_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-3\\P3.eeg",
+    "vhdr_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-3\\P3.vhdr",
+    "vmrk_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-3\\P3.vmrk",
     "eeg_exists":true,
-    "vhdr_exists":true,
-    "vmrk_exists":true,
-    "vhdr_is_html":true,
-    "vmrk_is_html":true,
+    "vhdr_exists":false,
+    "vmrk_exists":false,
+    "vhdr_is_html":false,
+    "vmrk_is_html":false,
     "vhdr_is_brainvision":false,
     "eeg_size_bytes":471927708,
     "layout_suggestions":[
@@ -91,14 +91,14 @@
   },
   {
     "participant_id":"P4",
-    "eeg_path":"D:\\Zhu\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-4\\P4.eeg",
-    "vhdr_path":"D:\\Zhu\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-4\\P4.vhdr",
-    "vmrk_path":"D:\\Zhu\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-4\\P4.vmrk",
+    "eeg_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-4\\P4.eeg",
+    "vhdr_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-4\\P4.vhdr",
+    "vmrk_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-4\\P4.vmrk",
     "eeg_exists":true,
-    "vhdr_exists":true,
-    "vmrk_exists":true,
-    "vhdr_is_html":true,
-    "vmrk_is_html":true,
+    "vhdr_exists":false,
+    "vmrk_exists":false,
+    "vhdr_is_html":false,
+    "vmrk_is_html":false,
     "vhdr_is_brainvision":false,
     "eeg_size_bytes":568905624,
     "layout_suggestions":[
@@ -132,6 +132,1068 @@
       "channels":63,
       "samples_per_channel":2257562,
       "duration_min":75.2520666667
+    }
+  },
+  {
+    "participant_id":"P5",
+    "eeg_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-5\\P5.eeg",
+    "vhdr_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-5\\P5.vhdr",
+    "vmrk_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-5\\P5.vmrk",
+    "eeg_exists":true,
+    "vhdr_exists":false,
+    "vmrk_exists":false,
+    "vhdr_is_html":false,
+    "vmrk_is_html":false,
+    "vhdr_is_brainvision":false,
+    "eeg_size_bytes":275188788,
+    "layout_suggestions":[
+      {
+        "dtype":"int32",
+        "channels":63,
+        "samples_per_channel":1092019,
+        "duration_min":36.4006333333
+      },
+      {
+        "dtype":"float32",
+        "channels":63,
+        "samples_per_channel":1092019,
+        "duration_min":36.4006333333
+      },
+      {
+        "dtype":"int16",
+        "channels":63,
+        "samples_per_channel":2184038,
+        "duration_min":72.8012666667
+      }
+    ],
+    "inferred_layout_best":{
+      "dtype":"int16",
+      "channels":63,
+      "samples_per_channel":2184038,
+      "duration_min":72.8012666667
+    }
+  },
+  {
+    "participant_id":"P6",
+    "eeg_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-6\\P6.eeg",
+    "vhdr_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-6\\P6.vhdr",
+    "vmrk_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-6\\P6.vmrk",
+    "eeg_exists":true,
+    "vhdr_exists":false,
+    "vmrk_exists":false,
+    "vhdr_is_html":false,
+    "vmrk_is_html":false,
+    "vhdr_is_brainvision":false,
+    "eeg_size_bytes":334868940,
+    "layout_suggestions":[
+      {
+        "dtype":"int32",
+        "channels":63,
+        "samples_per_channel":1328845,
+        "duration_min":44.2948333333
+      },
+      {
+        "dtype":"float32",
+        "channels":63,
+        "samples_per_channel":1328845,
+        "duration_min":44.2948333333
+      },
+      {
+        "dtype":"int16",
+        "channels":63,
+        "samples_per_channel":2657690,
+        "duration_min":88.5896666667
+      }
+    ],
+    "inferred_layout_best":{
+      "dtype":"int32",
+      "channels":63,
+      "samples_per_channel":1328845,
+      "duration_min":44.2948333333
+    }
+  },
+  {
+    "participant_id":"P7",
+    "eeg_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-7\\P7.eeg",
+    "vhdr_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-7\\P7.vhdr",
+    "vmrk_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-7\\P7.vmrk",
+    "eeg_exists":true,
+    "vhdr_exists":false,
+    "vmrk_exists":false,
+    "vhdr_is_html":false,
+    "vmrk_is_html":false,
+    "vhdr_is_brainvision":false,
+    "eeg_size_bytes":248622948,
+    "layout_suggestions":[
+      {
+        "dtype":"int32",
+        "channels":63,
+        "samples_per_channel":986599,
+        "duration_min":32.8866333333
+      },
+      {
+        "dtype":"float32",
+        "channels":63,
+        "samples_per_channel":986599,
+        "duration_min":32.8866333333
+      },
+      {
+        "dtype":"int16",
+        "channels":63,
+        "samples_per_channel":1973198,
+        "duration_min":65.7732666667
+      }
+    ],
+    "inferred_layout_best":{
+      "dtype":"int16",
+      "channels":63,
+      "samples_per_channel":1973198,
+      "duration_min":65.7732666667
+    }
+  },
+  {
+    "participant_id":"P8",
+    "eeg_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-8\\P8.eeg",
+    "vhdr_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-8\\P8.vhdr",
+    "vmrk_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-8\\P8.vmrk",
+    "eeg_exists":true,
+    "vhdr_exists":false,
+    "vmrk_exists":false,
+    "vhdr_is_html":false,
+    "vmrk_is_html":false,
+    "vhdr_is_brainvision":false,
+    "eeg_size_bytes":474205032,
+    "layout_suggestions":[
+      {
+        "dtype":"float64",
+        "channels":63,
+        "samples_per_channel":940883,
+        "duration_min":31.3627666667
+      },
+      {
+        "dtype":"int32",
+        "channels":63,
+        "samples_per_channel":1881766,
+        "duration_min":62.7255333333
+      },
+      {
+        "dtype":"float32",
+        "channels":63,
+        "samples_per_channel":1881766,
+        "duration_min":62.7255333333
+      },
+      {
+        "dtype":"int16",
+        "channels":63,
+        "samples_per_channel":3763532,
+        "duration_min":125.4510666667
+      }
+    ],
+    "inferred_layout_best":{
+      "dtype":"int32",
+      "channels":63,
+      "samples_per_channel":1881766,
+      "duration_min":62.7255333333
+    }
+  },
+  {
+    "participant_id":"P9",
+    "eeg_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-9\\P9.eeg",
+    "vhdr_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-9\\P9.vhdr",
+    "vmrk_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-9\\P9.vmrk",
+    "eeg_exists":true,
+    "vhdr_exists":false,
+    "vmrk_exists":false,
+    "vhdr_is_html":false,
+    "vmrk_is_html":false,
+    "vhdr_is_brainvision":false,
+    "eeg_size_bytes":658261044,
+    "layout_suggestions":[
+      {
+        "dtype":"int32",
+        "channels":63,
+        "samples_per_channel":2612147,
+        "duration_min":87.0715666667
+      },
+      {
+        "dtype":"float32",
+        "channels":63,
+        "samples_per_channel":2612147,
+        "duration_min":87.0715666667
+      },
+      {
+        "dtype":"int16",
+        "channels":63,
+        "samples_per_channel":5224294,
+        "duration_min":174.1431333333
+      }
+    ],
+    "inferred_layout_best":{
+      "dtype":"int32",
+      "channels":63,
+      "samples_per_channel":2612147,
+      "duration_min":87.0715666667
+    }
+  },
+  {
+    "participant_id":"P10",
+    "eeg_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-10\\P10.eeg",
+    "vhdr_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-10\\P10.vhdr",
+    "vmrk_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-10\\P10.vmrk",
+    "eeg_exists":true,
+    "vhdr_exists":false,
+    "vmrk_exists":false,
+    "vhdr_is_html":false,
+    "vmrk_is_html":false,
+    "vhdr_is_brainvision":false,
+    "eeg_size_bytes":236546100,
+    "layout_suggestions":[
+      {
+        "dtype":"int32",
+        "channels":63,
+        "samples_per_channel":938675,
+        "duration_min":31.2891666667
+      },
+      {
+        "dtype":"float32",
+        "channels":63,
+        "samples_per_channel":938675,
+        "duration_min":31.2891666667
+      },
+      {
+        "dtype":"int16",
+        "channels":63,
+        "samples_per_channel":1877350,
+        "duration_min":62.5783333333
+      }
+    ],
+    "inferred_layout_best":{
+      "dtype":"int16",
+      "channels":63,
+      "samples_per_channel":1877350,
+      "duration_min":62.5783333333
+    }
+  },
+  {
+    "participant_id":"P11",
+    "eeg_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-11\\P11.eeg",
+    "vhdr_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-11\\P11.vhdr",
+    "vmrk_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-11\\P11.vmrk",
+    "eeg_exists":true,
+    "vhdr_exists":false,
+    "vmrk_exists":false,
+    "vhdr_is_html":false,
+    "vmrk_is_html":false,
+    "vhdr_is_brainvision":false,
+    "eeg_size_bytes":828572724,
+    "layout_suggestions":[
+      {
+        "dtype":"int32",
+        "channels":63,
+        "samples_per_channel":3287987,
+        "duration_min":109.5995666667
+      },
+      {
+        "dtype":"float32",
+        "channels":63,
+        "samples_per_channel":3287987,
+        "duration_min":109.5995666667
+      }
+    ],
+    "inferred_layout_best":{
+      "dtype":"int32",
+      "channels":63,
+      "samples_per_channel":3287987,
+      "duration_min":109.5995666667
+    }
+  },
+  {
+    "participant_id":"P12",
+    "eeg_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-12\\P12.eeg",
+    "vhdr_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-12\\P12.vhdr",
+    "vmrk_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-12\\P12.vmrk",
+    "eeg_exists":true,
+    "vhdr_exists":false,
+    "vmrk_exists":false,
+    "vhdr_is_html":false,
+    "vmrk_is_html":false,
+    "vhdr_is_brainvision":false,
+    "eeg_size_bytes":410780160,
+    "layout_suggestions":[
+      {
+        "dtype":"int32",
+        "channels":128,
+        "samples_per_channel":802305,
+        "duration_min":26.7435
+      },
+      {
+        "dtype":"float32",
+        "channels":128,
+        "samples_per_channel":802305,
+        "duration_min":26.7435
+      },
+      {
+        "dtype":"int16",
+        "channels":128,
+        "samples_per_channel":1604610,
+        "duration_min":53.487
+      },
+      {
+        "dtype":"float64",
+        "channels":96,
+        "samples_per_channel":534870,
+        "duration_min":17.829
+      },
+      {
+        "dtype":"int32",
+        "channels":96,
+        "samples_per_channel":1069740,
+        "duration_min":35.658
+      }
+    ],
+    "inferred_layout_best":{
+      "dtype":"int16",
+      "channels":128,
+      "samples_per_channel":1604610,
+      "duration_min":53.487
+    }
+  },
+  {
+    "participant_id":"P13",
+    "eeg_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-13\\P13.eeg",
+    "vhdr_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-13\\P13.vhdr",
+    "vmrk_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-13\\P13.vmrk",
+    "eeg_exists":true,
+    "vhdr_exists":false,
+    "vmrk_exists":false,
+    "vhdr_is_html":false,
+    "vmrk_is_html":false,
+    "vhdr_is_brainvision":false,
+    "eeg_size_bytes":540201060,
+    "layout_suggestions":[
+      {
+        "dtype":"int32",
+        "channels":63,
+        "samples_per_channel":2143655,
+        "duration_min":71.4551666667
+      },
+      {
+        "dtype":"float32",
+        "channels":63,
+        "samples_per_channel":2143655,
+        "duration_min":71.4551666667
+      },
+      {
+        "dtype":"int16",
+        "channels":63,
+        "samples_per_channel":4287310,
+        "duration_min":142.9103333333
+      }
+    ],
+    "inferred_layout_best":{
+      "dtype":"int32",
+      "channels":63,
+      "samples_per_channel":2143655,
+      "duration_min":71.4551666667
+    }
+  },
+  {
+    "participant_id":"P14",
+    "eeg_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-14\\P14.eeg",
+    "vhdr_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-14\\P14.vhdr",
+    "vmrk_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-14\\P14.vmrk",
+    "eeg_exists":true,
+    "vhdr_exists":false,
+    "vmrk_exists":false,
+    "vhdr_is_html":false,
+    "vmrk_is_html":false,
+    "vhdr_is_brainvision":false,
+    "eeg_size_bytes":600235776,
+    "layout_suggestions":[
+      {
+        "dtype":"int16",
+        "channels":128,
+        "samples_per_channel":2344671,
+        "duration_min":78.1557
+      },
+      {
+        "dtype":"float64",
+        "channels":96,
+        "samples_per_channel":781557,
+        "duration_min":26.0519
+      },
+      {
+        "dtype":"int32",
+        "channels":96,
+        "samples_per_channel":1563114,
+        "duration_min":52.1038
+      },
+      {
+        "dtype":"float32",
+        "channels":96,
+        "samples_per_channel":1563114,
+        "duration_min":52.1038
+      },
+      {
+        "dtype":"int16",
+        "channels":96,
+        "samples_per_channel":3126228,
+        "duration_min":104.2076
+      }
+    ],
+    "inferred_layout_best":{
+      "dtype":"int16",
+      "channels":128,
+      "samples_per_channel":2344671,
+      "duration_min":78.1557
+    }
+  },
+  {
+    "participant_id":"P15",
+    "eeg_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-15\\P15.eeg",
+    "vhdr_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-15\\P15.vhdr",
+    "vmrk_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-15\\P15.vmrk",
+    "eeg_exists":true,
+    "vhdr_exists":false,
+    "vmrk_exists":false,
+    "vhdr_is_html":false,
+    "vmrk_is_html":false,
+    "vhdr_is_brainvision":false,
+    "eeg_size_bytes":464034816,
+    "layout_suggestions":[
+      {
+        "dtype":"float64",
+        "channels":128,
+        "samples_per_channel":453159,
+        "duration_min":15.1053
+      },
+      {
+        "dtype":"int32",
+        "channels":128,
+        "samples_per_channel":906318,
+        "duration_min":30.2106
+      },
+      {
+        "dtype":"float32",
+        "channels":128,
+        "samples_per_channel":906318,
+        "duration_min":30.2106
+      },
+      {
+        "dtype":"int16",
+        "channels":128,
+        "samples_per_channel":1812636,
+        "duration_min":60.4212
+      },
+      {
+        "dtype":"float64",
+        "channels":96,
+        "samples_per_channel":604212,
+        "duration_min":20.1404
+      }
+    ],
+    "inferred_layout_best":{
+      "dtype":"int16",
+      "channels":128,
+      "samples_per_channel":1812636,
+      "duration_min":60.4212
+    }
+  },
+  {
+    "participant_id":"P16",
+    "eeg_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-16\\P16.eeg",
+    "vhdr_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-16\\P16.vhdr",
+    "vmrk_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-16\\P16.vmrk",
+    "eeg_exists":true,
+    "vhdr_exists":false,
+    "vmrk_exists":false,
+    "vhdr_is_html":false,
+    "vmrk_is_html":false,
+    "vhdr_is_brainvision":false,
+    "eeg_size_bytes":512457372,
+    "layout_suggestions":[
+      {
+        "dtype":"int32",
+        "channels":63,
+        "samples_per_channel":2033561,
+        "duration_min":67.7853666667
+      },
+      {
+        "dtype":"float32",
+        "channels":63,
+        "samples_per_channel":2033561,
+        "duration_min":67.7853666667
+      },
+      {
+        "dtype":"int16",
+        "channels":63,
+        "samples_per_channel":4067122,
+        "duration_min":135.5707333333
+      }
+    ],
+    "inferred_layout_best":{
+      "dtype":"int32",
+      "channels":63,
+      "samples_per_channel":2033561,
+      "duration_min":67.7853666667
+    }
+  },
+  {
+    "participant_id":"P17",
+    "eeg_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-17\\P17.eeg",
+    "vhdr_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-17\\P17.vhdr",
+    "vmrk_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-17\\P17.vmrk",
+    "eeg_exists":true,
+    "vhdr_exists":false,
+    "vmrk_exists":false,
+    "vhdr_is_html":false,
+    "vmrk_is_html":false,
+    "vhdr_is_brainvision":false,
+    "eeg_size_bytes":841610448,
+    "layout_suggestions":[
+      {
+        "dtype":"float64",
+        "channels":63,
+        "samples_per_channel":1669862,
+        "duration_min":55.6620666667
+      },
+      {
+        "dtype":"int32",
+        "channels":63,
+        "samples_per_channel":3339724,
+        "duration_min":111.3241333333
+      },
+      {
+        "dtype":"float32",
+        "channels":63,
+        "samples_per_channel":3339724,
+        "duration_min":111.3241333333
+      }
+    ],
+    "inferred_layout_best":{
+      "dtype":"float64",
+      "channels":63,
+      "samples_per_channel":1669862,
+      "duration_min":55.6620666667
+    }
+  },
+  {
+    "participant_id":"P18",
+    "eeg_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-18\\P18.eeg",
+    "vhdr_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-18\\P18.vhdr",
+    "vmrk_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-18\\P18.vmrk",
+    "eeg_exists":true,
+    "vhdr_exists":false,
+    "vmrk_exists":false,
+    "vhdr_is_html":false,
+    "vmrk_is_html":false,
+    "vhdr_is_brainvision":false,
+    "eeg_size_bytes":791678412,
+    "layout_suggestions":[
+      {
+        "dtype":"int32",
+        "channels":63,
+        "samples_per_channel":3141581,
+        "duration_min":104.7193666667
+      },
+      {
+        "dtype":"float32",
+        "channels":63,
+        "samples_per_channel":3141581,
+        "duration_min":104.7193666667
+      }
+    ],
+    "inferred_layout_best":{
+      "dtype":"int32",
+      "channels":63,
+      "samples_per_channel":3141581,
+      "duration_min":104.7193666667
+    }
+  },
+  {
+    "participant_id":"P19",
+    "eeg_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-19\\P19.eeg",
+    "vhdr_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-19\\P19.vhdr",
+    "vmrk_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-19\\P19.vmrk",
+    "eeg_exists":true,
+    "vhdr_exists":false,
+    "vmrk_exists":false,
+    "vhdr_is_html":false,
+    "vmrk_is_html":false,
+    "vhdr_is_brainvision":false,
+    "eeg_size_bytes":427688604,
+    "layout_suggestions":[
+      {
+        "dtype":"int32",
+        "channels":63,
+        "samples_per_channel":1697177,
+        "duration_min":56.5725666667
+      },
+      {
+        "dtype":"float32",
+        "channels":63,
+        "samples_per_channel":1697177,
+        "duration_min":56.5725666667
+      },
+      {
+        "dtype":"int16",
+        "channels":63,
+        "samples_per_channel":3394354,
+        "duration_min":113.1451333333
+      }
+    ],
+    "inferred_layout_best":{
+      "dtype":"int32",
+      "channels":63,
+      "samples_per_channel":1697177,
+      "duration_min":56.5725666667
+    }
+  },
+  {
+    "participant_id":"P20",
+    "eeg_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-20\\P20.eeg",
+    "vhdr_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-20\\P20.vhdr",
+    "vmrk_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-20\\P20.vmrk",
+    "eeg_exists":true,
+    "vhdr_exists":false,
+    "vmrk_exists":false,
+    "vhdr_is_html":false,
+    "vmrk_is_html":false,
+    "vhdr_is_brainvision":false,
+    "eeg_size_bytes":437213952,
+    "layout_suggestions":[
+      {
+        "dtype":"int16",
+        "channels":128,
+        "samples_per_channel":1707867,
+        "duration_min":56.9289
+      },
+      {
+        "dtype":"float64",
+        "channels":96,
+        "samples_per_channel":569289,
+        "duration_min":18.9763
+      },
+      {
+        "dtype":"int32",
+        "channels":96,
+        "samples_per_channel":1138578,
+        "duration_min":37.9526
+      },
+      {
+        "dtype":"float32",
+        "channels":96,
+        "samples_per_channel":1138578,
+        "duration_min":37.9526
+      },
+      {
+        "dtype":"int16",
+        "channels":96,
+        "samples_per_channel":2277156,
+        "duration_min":75.9052
+      }
+    ],
+    "inferred_layout_best":{
+      "dtype":"int16",
+      "channels":128,
+      "samples_per_channel":1707867,
+      "duration_min":56.9289
+    }
+  },
+  {
+    "participant_id":"P21",
+    "eeg_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-21\\P21.eeg",
+    "vhdr_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-21\\P21.vhdr",
+    "vmrk_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-21\\P21.vmrk",
+    "eeg_exists":true,
+    "vhdr_exists":false,
+    "vmrk_exists":false,
+    "vhdr_is_html":false,
+    "vmrk_is_html":false,
+    "vhdr_is_brainvision":false,
+    "eeg_size_bytes":414570240,
+    "layout_suggestions":[
+      {
+        "dtype":"int16",
+        "channels":128,
+        "samples_per_channel":1619415,
+        "duration_min":53.9805
+      },
+      {
+        "dtype":"float64",
+        "channels":96,
+        "samples_per_channel":539805,
+        "duration_min":17.9935
+      },
+      {
+        "dtype":"int32",
+        "channels":96,
+        "samples_per_channel":1079610,
+        "duration_min":35.987
+      },
+      {
+        "dtype":"float32",
+        "channels":96,
+        "samples_per_channel":1079610,
+        "duration_min":35.987
+      },
+      {
+        "dtype":"int16",
+        "channels":96,
+        "samples_per_channel":2159220,
+        "duration_min":71.974
+      }
+    ],
+    "inferred_layout_best":{
+      "dtype":"int16",
+      "channels":128,
+      "samples_per_channel":1619415,
+      "duration_min":53.9805
+    }
+  },
+  {
+    "participant_id":"P22",
+    "eeg_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-22\\P22.eeg",
+    "vhdr_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-22\\P22.vhdr",
+    "vmrk_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-22\\P22.vmrk",
+    "eeg_exists":true,
+    "vhdr_exists":false,
+    "vmrk_exists":false,
+    "vhdr_is_html":false,
+    "vmrk_is_html":false,
+    "vhdr_is_brainvision":false,
+    "eeg_size_bytes":466986240,
+    "layout_suggestions":[
+      {
+        "dtype":"int16",
+        "channels":128,
+        "samples_per_channel":1824165,
+        "duration_min":60.8055
+      },
+      {
+        "dtype":"float64",
+        "channels":96,
+        "samples_per_channel":608055,
+        "duration_min":20.2685
+      },
+      {
+        "dtype":"int32",
+        "channels":96,
+        "samples_per_channel":1216110,
+        "duration_min":40.537
+      },
+      {
+        "dtype":"float32",
+        "channels":96,
+        "samples_per_channel":1216110,
+        "duration_min":40.537
+      },
+      {
+        "dtype":"int16",
+        "channels":96,
+        "samples_per_channel":2432220,
+        "duration_min":81.074
+      }
+    ],
+    "inferred_layout_best":{
+      "dtype":"int16",
+      "channels":128,
+      "samples_per_channel":1824165,
+      "duration_min":60.8055
+    }
+  },
+  {
+    "participant_id":"P23",
+    "eeg_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-23\\P23.eeg",
+    "vhdr_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-23\\P23.vhdr",
+    "vmrk_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-23\\P23.vmrk",
+    "eeg_exists":true,
+    "vhdr_exists":false,
+    "vmrk_exists":false,
+    "vhdr_is_html":false,
+    "vmrk_is_html":false,
+    "vhdr_is_brainvision":false,
+    "eeg_size_bytes":338739408,
+    "layout_suggestions":[
+      {
+        "dtype":"int16",
+        "channels":72,
+        "samples_per_channel":2352357,
+        "duration_min":78.4119
+      },
+      {
+        "dtype":"float64",
+        "channels":63,
+        "samples_per_channel":672102,
+        "duration_min":22.4034
+      },
+      {
+        "dtype":"int32",
+        "channels":63,
+        "samples_per_channel":1344204,
+        "duration_min":44.8068
+      },
+      {
+        "dtype":"float32",
+        "channels":63,
+        "samples_per_channel":1344204,
+        "duration_min":44.8068
+      },
+      {
+        "dtype":"int16",
+        "channels":63,
+        "samples_per_channel":2688408,
+        "duration_min":89.6136
+      }
+    ],
+    "inferred_layout_best":{
+      "dtype":"int16",
+      "channels":72,
+      "samples_per_channel":2352357,
+      "duration_min":78.4119
+    }
+  },
+  {
+    "participant_id":"P24",
+    "eeg_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-24\\P24.eeg",
+    "vhdr_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-24\\P24.vhdr",
+    "vmrk_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-24\\P24.vmrk",
+    "eeg_exists":true,
+    "vhdr_exists":false,
+    "vmrk_exists":false,
+    "vhdr_is_html":false,
+    "vmrk_is_html":false,
+    "vhdr_is_brainvision":false,
+    "eeg_size_bytes":278043696,
+    "layout_suggestions":[
+      {
+        "dtype":"int16",
+        "channels":72,
+        "samples_per_channel":1930859,
+        "duration_min":64.3619666667
+      },
+      {
+        "dtype":"float64",
+        "channels":63,
+        "samples_per_channel":551674,
+        "duration_min":18.3891333333
+      },
+      {
+        "dtype":"int32",
+        "channels":63,
+        "samples_per_channel":1103348,
+        "duration_min":36.7782666667
+      },
+      {
+        "dtype":"float32",
+        "channels":63,
+        "samples_per_channel":1103348,
+        "duration_min":36.7782666667
+      },
+      {
+        "dtype":"int16",
+        "channels":63,
+        "samples_per_channel":2206696,
+        "duration_min":73.5565333333
+      }
+    ],
+    "inferred_layout_best":{
+      "dtype":"int16",
+      "channels":72,
+      "samples_per_channel":1930859,
+      "duration_min":64.3619666667
+    }
+  },
+  {
+    "participant_id":"P25",
+    "eeg_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-25\\P25.eeg",
+    "vhdr_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-25\\P25.vhdr",
+    "vmrk_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-25\\P25.vmrk",
+    "eeg_exists":true,
+    "vhdr_exists":false,
+    "vmrk_exists":false,
+    "vhdr_is_html":false,
+    "vmrk_is_html":false,
+    "vhdr_is_brainvision":false,
+    "eeg_size_bytes":407796480,
+    "layout_suggestions":[
+      {
+        "dtype":"int16",
+        "channels":128,
+        "samples_per_channel":1592955,
+        "duration_min":53.0985
+      },
+      {
+        "dtype":"float64",
+        "channels":96,
+        "samples_per_channel":530985,
+        "duration_min":17.6995
+      },
+      {
+        "dtype":"int32",
+        "channels":96,
+        "samples_per_channel":1061970,
+        "duration_min":35.399
+      },
+      {
+        "dtype":"float32",
+        "channels":96,
+        "samples_per_channel":1061970,
+        "duration_min":35.399
+      },
+      {
+        "dtype":"int16",
+        "channels":96,
+        "samples_per_channel":2123940,
+        "duration_min":70.798
+      }
+    ],
+    "inferred_layout_best":{
+      "dtype":"int16",
+      "channels":128,
+      "samples_per_channel":1592955,
+      "duration_min":53.0985
+    }
+  },
+  {
+    "participant_id":"P26",
+    "eeg_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-26\\P26.eeg",
+    "vhdr_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-26\\P26.vhdr",
+    "vmrk_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-26\\P26.vmrk",
+    "eeg_exists":true,
+    "vhdr_exists":false,
+    "vmrk_exists":false,
+    "vhdr_is_html":false,
+    "vmrk_is_html":false,
+    "vhdr_is_brainvision":false,
+    "eeg_size_bytes":607074048,
+    "layout_suggestions":[
+      {
+        "dtype":"int16",
+        "channels":128,
+        "samples_per_channel":2371383,
+        "duration_min":79.0461
+      },
+      {
+        "dtype":"float64",
+        "channels":96,
+        "samples_per_channel":790461,
+        "duration_min":26.3487
+      },
+      {
+        "dtype":"int32",
+        "channels":96,
+        "samples_per_channel":1580922,
+        "duration_min":52.6974
+      },
+      {
+        "dtype":"float32",
+        "channels":96,
+        "samples_per_channel":1580922,
+        "duration_min":52.6974
+      },
+      {
+        "dtype":"int16",
+        "channels":96,
+        "samples_per_channel":3161844,
+        "duration_min":105.3948
+      }
+    ],
+    "inferred_layout_best":{
+      "dtype":"int16",
+      "channels":128,
+      "samples_per_channel":2371383,
+      "duration_min":79.0461
+    }
+  },
+  {
+    "participant_id":"P27",
+    "eeg_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-27\\P27.eeg",
+    "vhdr_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-27\\P27.vhdr",
+    "vmrk_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-27\\P27.vmrk",
+    "eeg_exists":true,
+    "vhdr_exists":false,
+    "vmrk_exists":false,
+    "vhdr_is_html":false,
+    "vmrk_is_html":false,
+    "vhdr_is_brainvision":false,
+    "eeg_size_bytes":887636736,
+    "layout_suggestions":[
+      {
+        "dtype":"int16",
+        "channels":128,
+        "samples_per_channel":3467331,
+        "duration_min":115.5777
+      },
+      {
+        "dtype":"float64",
+        "channels":96,
+        "samples_per_channel":1155777,
+        "duration_min":38.5259
+      },
+      {
+        "dtype":"int32",
+        "channels":96,
+        "samples_per_channel":2311554,
+        "duration_min":77.0518
+      },
+      {
+        "dtype":"float32",
+        "channels":96,
+        "samples_per_channel":2311554,
+        "duration_min":77.0518
+      },
+      {
+        "dtype":"int16",
+        "channels":96,
+        "samples_per_channel":4623108,
+        "duration_min":154.1036
+      }
+    ],
+    "inferred_layout_best":{
+      "dtype":"int16",
+      "channels":128,
+      "samples_per_channel":3467331,
+      "duration_min":115.5777
+    }
+  },
+  {
+    "participant_id":"P28",
+    "eeg_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-28\\P28.eeg",
+    "vhdr_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-28\\P28.vhdr",
+    "vmrk_path":"D:\\AI Project\\EEG Creativity Analysis\\EEG data\\Participant-28\\P28.vmrk",
+    "eeg_exists":true,
+    "vhdr_exists":false,
+    "vmrk_exists":false,
+    "vhdr_is_html":false,
+    "vmrk_is_html":false,
+    "vhdr_is_brainvision":false,
+    "eeg_size_bytes":106354332,
+    "layout_suggestions":[
+      {
+        "dtype":"int32",
+        "channels":63,
+        "samples_per_channel":422041,
+        "duration_min":14.0680333333
+      },
+      {
+        "dtype":"float32",
+        "channels":63,
+        "samples_per_channel":422041,
+        "duration_min":14.0680333333
+      },
+      {
+        "dtype":"int16",
+        "channels":63,
+        "samples_per_channel":844082,
+        "duration_min":28.1360666667
+      }
+    ],
+    "inferred_layout_best":{
+      "dtype":"int16",
+      "channels":63,
+      "samples_per_channel":844082,
+      "duration_min":28.1360666667
     }
   }
 ]

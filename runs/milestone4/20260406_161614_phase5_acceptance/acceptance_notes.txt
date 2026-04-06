@@ -1,0 +1,8 @@
+Phase 5 acceptance checklist
+- Batches processed: 12
+- Intervention batches: 12
+- Queries issued: 192
+- Rollouts completed: 3
+- Final model version: 3
+- System run log: runs\milestone4\20260406_161614_phase5_acceptance\system_run_log.csv
+- Rollout history: runs\milestone4\20260406_161614_phase5_acceptance\rollout_history.csv

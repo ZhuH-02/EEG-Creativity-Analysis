@@ -1,0 +1,7 @@
+Phase 1 acceptance checklist
+- Drift batches processed: 9
+- Continual updates completed: 2
+- Baseline stream macro-F1: 0.3309
+- Final stream macro-F1: 0.3433
+- Metric trajectory plot: runs\milestone4\20260406_151235_phase1_acceptance\metric_trajectory.png
+- Update history table: runs\milestone4\20260406_151235_phase1_acceptance\update_history.csv

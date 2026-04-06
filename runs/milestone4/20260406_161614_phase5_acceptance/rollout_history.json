@@ -1,0 +1,34 @@
+[
+  {
+    "version": 0,
+    "type": "initial",
+    "path": "runs\\milestone4\\20260406_161614_phase5_acceptance\\model_step_000.pt",
+    "parent_version": "",
+    "trigger_batch": "",
+    "trigger_reason": ""
+  },
+  {
+    "version": 1,
+    "type": "continual_rollout",
+    "path": "runs\\milestone4\\20260406_161614_phase5_acceptance\\model_step_001.pt",
+    "parent_version": 0,
+    "trigger_batch": 3,
+    "trigger_reason": "reviewed_label_threshold"
+  },
+  {
+    "version": 2,
+    "type": "continual_rollout",
+    "path": "runs\\milestone4\\20260406_161614_phase5_acceptance\\model_step_002.pt",
+    "parent_version": 1,
+    "trigger_batch": 6,
+    "trigger_reason": "reviewed_label_threshold"
+  },
+  {
+    "version": 3,
+    "type": "continual_rollout",
+    "path": "runs\\milestone4\\20260406_161614_phase5_acceptance\\model_step_003.pt",
+    "parent_version": 2,
+    "trigger_batch": 9,
+    "trigger_reason": "reviewed_label_threshold"
+  }
+]

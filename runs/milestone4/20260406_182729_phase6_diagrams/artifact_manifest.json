@@ -1,0 +1,7 @@
+{
+  "training_run_dir": "D:\\AI Project\\EEG Creativity Analysis\\runs\\20260314_095455_torch_mlp_expanded_baseline_mlp",
+  "phase2_dir": "D:\\AI Project\\EEG Creativity Analysis\\runs\\milestone4\\20260406_152452_phase2_acceptance",
+  "phase3_dir": "D:\\AI Project\\EEG Creativity Analysis\\runs\\milestone4\\20260406_153744_phase3_acceptance",
+  "phase4_dir": "D:\\AI Project\\EEG Creativity Analysis\\runs\\milestone4\\20260406_155249_phase4_acceptance",
+  "phase5_dir": "D:\\AI Project\\EEG Creativity Analysis\\runs\\milestone4\\20260406_161825_phase5_acceptance"
+}

@@ -1,0 +1,213 @@
+{
+  "timestamp": "20260406_170038",
+  "model_type": "torch_linear",
+  "hyperparameters": {
+    "hidden_layers": [],
+    "dropout": 0.0,
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "batch_size": 128,
+    "epochs": 2,
+    "patience": 1,
+    "use_class_weights": true
+  },
+  "features": {
+    "use_freq_features": true,
+    "n_features": 11,
+    "feature_names": [
+      "mean",
+      "std",
+      "var",
+      "max",
+      "min",
+      "rms",
+      "delta_power",
+      "theta_power",
+      "alpha_power",
+      "beta_power",
+      "gamma_power"
+    ]
+  },
+  "seed": 42,
+  "split_subjects": {
+    "train": [
+      "P4",
+      "P5"
+    ],
+    "val": [
+      "P3"
+    ],
+    "test": [
+      "P2"
+    ]
+  },
+  "device": "cpu",
+  "torch_version": "2.11.0+cpu",
+  "dataset": {
+    "n_total": 2490,
+    "n_train": 1342,
+    "n_val": 669,
+    "n_test": 479,
+    "label_distribution_train": {
+      "0": 600,
+      "1": 238,
+      "2": 418,
+      "3": 86
+    },
+    "label_distribution_val": {
+      "0": 288,
+      "1": 75,
+      "2": 279,
+      "3": 27
+    },
+    "label_distribution_test": {
+      "0": 294,
+      "1": 47,
+      "2": 107,
+      "3": 31
+    }
+  },
+  "validation": {
+    "accuracy": 0.2974588938714499,
+    "precision_macro": 0.27450503083414474,
+    "precision_micro": 0.2974588938714499,
+    "precision_weighted": 0.4332419297793652,
+    "recall_macro": 0.22962850955794506,
+    "recall_micro": 0.2974588938714499,
+    "recall_weighted": 0.2974588938714499,
+    "f1_macro": 0.18110925824459817,
+    "f1_micro": 0.2974588938714499,
+    "f1_weighted": 0.26943422379586773,
+    "auroc_ovr_macro": 0.4935507397458767,
+    "auroc_ovr_weighted": 0.5726123009282771,
+    "pr_auc_ovr_macro": 0.28834019958288937,
+    "pr_auc_ovr_weighted": 0.4456697654608675,
+    "per_class": {
+      "0": {
+        "precision": 0.5,
+        "recall": 0.03125,
+        "f1": 0.058823529411764705,
+        "support": 288
+      },
+      "1": {
+        "precision": 0.07692307692307693,
+        "recall": 0.05333333333333334,
+        "f1": 0.06299212598425198,
+        "support": 75
+      },
+      "2": {
+        "precision": 0.5,
+        "recall": 0.6487455197132617,
+        "f1": 0.5647425897035881,
+        "support": 279
+      },
+      "3": {
+        "precision": 0.02109704641350211,
+        "recall": 0.18518518518518517,
+        "f1": 0.03787878787878788,
+        "support": 27
+      }
+    },
+    "confusion_matrix": [
+      [
+        9,
+        31,
+        120,
+        128
+      ],
+      [
+        2,
+        4,
+        47,
+        22
+      ],
+      [
+        3,
+        13,
+        181,
+        82
+      ],
+      [
+        4,
+        4,
+        14,
+        5
+      ]
+    ]
+  },
+  "test": {
+    "accuracy": 0.4321503131524008,
+    "precision_macro": 0.3295137187653111,
+    "precision_micro": 0.4321503131524008,
+    "precision_weighted": 0.6209915418677038,
+    "recall_macro": 0.321690487688414,
+    "recall_micro": 0.4321503131524008,
+    "recall_weighted": 0.4321503131524008,
+    "f1_macro": 0.263701979837736,
+    "f1_micro": 0.4321503131524008,
+    "f1_weighted": 0.43617952460850906,
+    "auroc_ovr_macro": 0.5599055493937256,
+    "auroc_ovr_weighted": 0.6846261411421524,
+    "pr_auc_ovr_macro": 0.32525712354650277,
+    "pr_auc_ovr_weighted": 0.5984737557484323,
+    "per_class": {
+      "0": {
+        "precision": 0.8846153846153846,
+        "recall": 0.391156462585034,
+        "f1": 0.5424528301886793,
+        "support": 294
+      },
+      "1": {
+        "precision": 0.15,
+        "recall": 0.06382978723404255,
+        "f1": 0.08955223880597013,
+        "support": 47
+      },
+      "2": {
+        "precision": 0.28343949044585987,
+        "recall": 0.8317757009345794,
+        "f1": 0.4228028503562945,
+        "support": 107
+      },
+      "3": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 31
+      }
+    },
+    "confusion_matrix": [
+      [
+        115,
+        12,
+        158,
+        9
+      ],
+      [
+        3,
+        3,
+        41,
+        0
+      ],
+      [
+        10,
+        2,
+        89,
+        6
+      ],
+      [
+        2,
+        3,
+        26,
+        0
+      ]
+    ]
+  },
+  "early_stopping": {
+    "enabled": true,
+    "best_epoch": 2,
+    "best_val_macro_f1": 0.18110925824459817,
+    "stopped_early": false,
+    "epochs_ran": 2
+  }
+}

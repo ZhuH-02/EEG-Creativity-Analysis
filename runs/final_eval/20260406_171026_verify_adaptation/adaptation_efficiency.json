@@ -1,0 +1,38 @@
+{
+  "before_clean": {
+    "latency_per_sample_ms_p50": 0.0005648439582728315,
+    "latency_per_sample_ms_p90": 0.0008013761076871135,
+    "throughput_samples_per_sec": 313352.06220168865,
+    "peak_ram_mb": 404.58984375,
+    "peak_vram_mb": null,
+    "n_samples_profiled": 3034,
+    "warmup_batches": 3
+  },
+  "after_clean": {
+    "latency_per_sample_ms_p50": 0.0004773437467520125,
+    "latency_per_sample_ms_p90": 0.000764453261581366,
+    "throughput_samples_per_sec": 354133.1098222924,
+    "peak_ram_mb": 404.64453125,
+    "peak_vram_mb": null,
+    "n_samples_profiled": 3034,
+    "warmup_batches": 3
+  },
+  "before_drift": {
+    "latency_per_sample_ms_p50": 0.0005394531399360858,
+    "latency_per_sample_ms_p90": 0.0007363282747974154,
+    "throughput_samples_per_sec": 348884.0067048146,
+    "peak_ram_mb": 404.64453125,
+    "peak_vram_mb": null,
+    "n_samples_profiled": 3034,
+    "warmup_batches": 3
+  },
+  "after_drift": {
+    "latency_per_sample_ms_p50": 0.0004707030711870175,
+    "latency_per_sample_ms_p90": 0.0007587154993975382,
+    "throughput_samples_per_sec": 352372.7687269251,
+    "peak_ram_mb": 404.64453125,
+    "peak_vram_mb": null,
+    "n_samples_profiled": 3034,
+    "warmup_batches": 3
+  }
+}
