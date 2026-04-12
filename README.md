@@ -1,4 +1,4 @@
-﻿# EEG Creativity Analysis
+# EEG Creativity Analysis
 
 Reproducible EEG phase-classification pipeline in Python and PyTorch for:
 
@@ -24,6 +24,19 @@ Source DOI:
 
 `10.17632/24yp3xp58b.1`
 
+The project uses two related representations of the EEG study data:
+
+- `sub_XX.json`: segmented EEG arrays used by the training and evaluation pipelines
+- `P*.eeg`: raw continuous EEG files used by the Phase 1 audit workflow
+- `P*.vhdr`, `P*.vmrk`: optional BrainVision metadata files when available
+
+Current local copy used in this workspace:
+
+- `EEG data/` contains `27` participant folders (`Participant-2` to `Participant-28`)
+- each participant folder currently contains one `sub_XX.json` file and one `P*.eeg` file
+- total local dataset footprint is about `34.4 GB`
+- the current raw-data copy does not include `.vhdr` or `.vmrk`, so `code/phase1_data_selection_audit.py` uses its binary fallback layout inference for `.eeg` files
+
 Expected local layout:
 
 ```text
@@ -39,11 +52,47 @@ EEG data/
   ...
 ```
 
-File usage:
+How the code uses these files:
 
-- `sub_XX.json`: primary training and evaluation source
-- `P*.eeg`: raw EEG stream used by the audit workflow
-- `P*.vhdr`, `P*.vmrk`: optional metadata files
+- `code/app.py` and `code/train_pipeline.py` load `sub_XX.json` as the main supervised-learning source
+- `code/phase1_data_selection_audit.py` reads `P*.eeg` for raw-data auditing, and uses `P*.vhdr` / `P*.vmrk` only if they are present
+- all train/validation/test splits are participant-wise, so windows from the same participant do not leak across splits
+
+### JSON Training Data
+
+The training code expects each `sub_XX.json` file to store segmented EEG arrays keyed by task-phase names. The loader in `code/app.py` is written for keys shaped like `cycle_phase`, for example:
+
+- `1_rest`
+- `1_idea generation`
+- `2_idea evolution`
+- `2_idea rating`
+
+Those segment names are normalized into the four canonical classes listed below. Each segment is then cut into fixed windows using the current project defaults from `code/config.py`:
+
+- sampling rate: `500 Hz`
+- window size: `1000` samples (`2` seconds)
+- window overlap: `0.5`
+
+For each window, the project extracts compact channel-averaged features:
+
+- time-domain statistics: `mean`, `std`, `var`, `min`, `max`, `rms`, `skew`, `kurtosis`
+- frequency features: `delta`, `theta`, `alpha`, `beta`, `gamma` bandpower
+- simple ratios such as `alpha/beta` and `theta/alpha`
+
+### Audit-Derived Tabular Data
+
+`outputs/phase1_data_selection/features.csv` is a derived feature table produced by the audit script, not a raw source file. The current audit artifacts in this repo cover:
+
+- `27` participants
+- `300` windows per participant
+- `8100` total windows
+
+Key audit outputs include:
+
+- `features.csv`: one row per extracted window
+- `file_audit.json`: file presence checks plus inferred raw EEG layout details
+- `summary_stats.csv`, `missingness.csv`, `duplicates.csv`, `outliers_summary.csv`: data quality summaries
+- `example_rows.csv`: sample rows from the derived feature table
 
 ## Label Mapping
 
